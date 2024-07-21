@@ -1,0 +1,16 @@
+.bookscontainer{
+margin-top: 2rem !important;
+
+}
+.bookscontainer h2{
+    text-align: center;
+}
+  .genre-books{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 1rem;
+  justify-content: center;
+  }
+  
+  

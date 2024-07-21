@@ -1,0 +1,159 @@
+.header {
+  text-align: center;
+  width: 100vw;
+  height: 4rem;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in;
+}
+
+.logo {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.logo .text-primary {
+  color: var(--text-color);
+}
+.search-bar {
+  width: 40%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar-input {
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid var(--dark-color);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  width: 100%;
+}
+
+.search-button {
+  border:none;
+  padding: 5px;
+  height: 2.2rem;
+  width: 2.4rem;
+  background-color: var(--dark-color); 
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-button-icon{
+  padding: 1px;
+  height: 2rem;
+  width: 2rem;
+  filter: invert(100%) brightness(200%);
+
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links {
+  color: var(--header-text-color); 
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px; 
+  font-weight: 500; 
+  transition: color 0.2s ease-in; 
+}
+
+.nav-links:hover {
+  color: var(--secondary-color); /* Change color on hover to secondary */
+  text-decoration: none;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.dropdown-content {
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  background-color: var(--white);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+  top: 30px;
+  border: 1px solid var(--dark-color);
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in; 
+ display: flex;
+ flex-direction: column;
+}
+.button-login{
+  width: 95%;
+  height: 2.3rem;
+  font-size: 1rem;
+  border: none;
+  margin: 10px auto;
+  border-radius: 5px;
+  background-color: var(--dark-color);
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  text-decoration: none;
+  opacity: 1; /* Make visible with animation */
+}
+
+
+.dropbtn {
+  background: none;
+  border: none;
+  color: var(--header-text-color);
+  cursor: pointer;
+  font-size: 16px; 
+  font-weight: 500; 
+  transition: color 0.3s ease-in; 
+}
+.dropbtn:hover{
+  text-decoration: underline;
+  text-align: center;
+}
+.account-icon{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+ .password:hover{
+  background-color: none;
+  text-decoration: none;
+  color: var(--primary-color);
+ }
+
+ .dropdown-link{
+  text-align: center;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.dropdown-link:hover{
+  text-decoration: underline;
+  text-align: center;
+  }
+ .password{
+  margin-top: 5px;
+  font-weight: 600;
+ }
