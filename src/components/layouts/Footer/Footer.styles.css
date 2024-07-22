@@ -1,9 +1,106 @@
+/* Footer.styles.css */
+:root {
+  --primary-color: #508D4E;
+  --secondary-color: #80AF81;
+  --background-color: #D6EFD8;
+  --dark-color: #1A5319;
+  --text-color: #333333;
+}
+
 .footer {
-  background-color: var(--primary-color); /* Primary color */
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: fixed;
+  background-color: var(--background-color);
+  padding: 3rem ;
+  padding-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 3rem;
+
+}
+
+.right-footer {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.footer-form {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+ h2 {
+  color: var(--dark-color);
+  margin-bottom: 15px;
+}
+
+.footer-about p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field textarea {
   width: 100%;
-  bottom: 0;
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: #ffffff;
+}
+
+.form-field textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.footer button[type="submit"] {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.footer button[type="submit"]:hover {
+  background-color: var(--dark-color);
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social .social-icons a img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--secondary-color);
 }

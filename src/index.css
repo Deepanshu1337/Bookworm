@@ -47,10 +47,16 @@ body {
 }
 
 /* book card styles */
-.book-list{
-  margin-top: 1rem;
-  display:flex;
-  gap : 1.5rem;
-  flex-wrap: wrap;
+.books-page {
+  padding: 2rem;
+  text-align: center;
 }
 
+.book-list {
+  margin-top: 1rem;
+  display: flex;
+  margin: 3rem 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
