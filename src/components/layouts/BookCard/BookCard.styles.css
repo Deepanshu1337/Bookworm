@@ -80,3 +80,10 @@ button:hover {
 button:focus {
   outline: none;
 }
+.book-card-author{
+  color: blue;
+}
+.book-card-price{
+  color: var(--dark-color);
+  font-weight: bold;
+}

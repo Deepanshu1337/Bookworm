@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import './Header.styles.css';
 import SearchIcon from "../../../assets/search_icon.svg"
 import AccountIcon from "../../../assets/account.svg"
-import RightArrow from "../../../assets/right-arrow.svg"
-import DownArrow from "../../../assets/down arrow.png"
+
 
 
 const Header = () => {
@@ -18,6 +17,8 @@ const Header = () => {
     setIsLoggedIn(false);
   };
 
+ 
+
   return (
     <header className="header">
       <div className="container flex justify-between align-center">
@@ -27,7 +28,7 @@ const Header = () => {
         
 
         <div className="search-bar">
-          <input type="text"  className='search-bar-input' placeholder="Search for books..." />
+          <input type="text"  className='search-bar-input' placeholder="Search for books..."  />
           <button className='search-button'> <img src={SearchIcon} className='search-button-icon'></img> </button>
         </div>
 

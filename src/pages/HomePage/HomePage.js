@@ -9,7 +9,7 @@ import Footer from "../../components/layouts/Footer/Footer";
 const HomePage = () => (
   <div className="home-page">
     <Hero />
-    <GenreContainer />
+    {/* <GenreContainer /> */}
     <div className="container">
       <div className="home-page-books-container">
         <TrendingBooks />

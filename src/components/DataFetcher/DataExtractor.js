@@ -10,9 +10,10 @@ const DataExtractor = ({ book }) => {
     volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/128x194";
   
   
-  const price = saleInfo.retailPrice
-    ? Math.floor(saleInfo.retailPrice.amount)
-    : "Not Available";
+const price = saleInfo.retailPrice
+  ? Math.floor(saleInfo.retailPrice.amount)
+  : Math.floor(Math.random() * (500 - 300 + 1)) + 300;
+
   
   const title = getTitle(volumeInfo);
   
@@ -26,13 +27,12 @@ const DataExtractor = ({ book }) => {
   }
 
   function getAuthors(volumeInfo) {
-    const authors = volumeInfo.authors || [];
-    if (authors.length === 0) return "Unknown author";
-    const authorsArray = authors.join(", ").split(/,\s*|\;\s*/);
-    return authorsArray.length > 2
-      ? authorsArray.slice(0, 1) + ", ..."
-      : authorsArray[0];
+    const authors = volumeInfo.authors || []; 
+    if (authors.length === 0) return "Unknown author"; 
+    const authorsString = authors.join(", ");
+    return authors.length > 1 ? `${authors[0]}, ...` : authorsString;
   }
+
 
   return (
     <BookCard
