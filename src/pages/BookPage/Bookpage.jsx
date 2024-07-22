@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import DataFetcher from "../../components/DataFetcher/DataFetcher";
-import DataExtractor from "../../components/DataFetcher/DataExtractor";
+import BookDataHandler from "../../components/DataFetcher/BookDataHandler";
 import "./BookPage.styles.css";
+import Footer from "../../components/layouts/Footer/Footer";
 
 const BookPage = () => {
   const [query, setQuery] = useState("");
@@ -21,20 +21,13 @@ const BookPage = () => {
   }
 
   return (
-    <div className="book-page">
-      <h1>Books</h1>
-      <DataFetcher query={query} maxResults={40}>
-        {(books) => (
-          <div className="book-list">
-            {books.length > 0 ? (
-              books.map((book) => <DataExtractor key={book.id} book={book} />)
-            ) : (
-              <p>No books found for "{query}".</p>
-            )}
-          </div>
-        )}
-      </DataFetcher>
-    </div>
+    <>
+      <div className="book-page">
+        <h1>Books</h1>
+        <BookDataHandler query={query} maxResults={40} />
+      </div>
+      <Footer/>
+    </>
   );
 };
 
