@@ -1,29 +1,97 @@
 .book-card {
   border: 1px solid #ddd;
-  padding: 10px;
+  border-radius: 8px;
+  overflow: hidden; /* Ensures that overflow is contained */
+  width: 200px; /* Fixed maximum width for consistency */
+  height: 400px; /* Fixed height for consistency */
   margin: 10px;
-  width: 200px;
-  text-align: center;
-  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .book-cover {
+  padding: 10px;
   width: 100%;
-  height: auto;
+  height: 50%; /* Fixed height for cover images */
+  object-fit: contain; /* Ensures the image covers the area without distortion */
 }
 
-.book-info {
-  margin-top: 10px;
+.book-details {
+  padding: 15px;
+  text-align: center;
+  flex: 1; /* Allows this section to grow and fill space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distributes space evenly */
 }
 
-.book-info h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-  color: var(--primary-color); /* Primary color */
+.book-title {
+  font-size: 1.25em;
+  margin: 0;
+  font-weight: bold;
+  white-space: normal; /* Allows text to wrap */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Handles overflow gracefully */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limits the title to 2 lines */
+  -webkit-box-orient: vertical;
 }
 
-.book-info p {
+.book-author {
+  color: #555;
+  font-size: 0.9em;
   margin: 5px 0;
-  font-size: 16px;
-  color: var(--secondary-text-color); /* Secondary text color */
+  white-space: normal; /* Allows text to wrap */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Handles overflow gracefully */
+}
+
+.book-price {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 5px 0;
+  white-space: nowrap; /* Keeps the price on one line */
+}
+
+.book-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-align: center;
+  transition: background-color 0.3s;
+  flex: 1; /* Ensures buttons stretch to fill space */
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.details-button {
+  margin-right: 5px; /* Adds space between buttons */
+}
+
+.cart-button {
+  margin-left: 5px; /* Adds space between buttons */
+  
+  background-color: #007bff;
+}
+
+.cart-button img {
+  width: 20px; /* Adjust width as necessary */
+  height: auto;
+  vertical-align: middle;
+  filter: invert(100%) brightness(200%);
 }

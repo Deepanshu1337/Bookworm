@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/layouts/Header/Header';
 import Footer from './components/layouts/Footer/Footer';
-import HomePage from './components/pages/HomePage/HomePage';
-import BookDetailsPage from './components/pages/BookDetailsPage/BookDetailsPage';
-import OrdersPage from './components/pages/OrdersPage/OrdersPage';
-import CartPage from './components/pages/CartPage/CartPage';
+import HomePage from './pages/HomePage/HomePage';
+import BookDetailsPage from './pages/BookDetailsPage/BookDetailsPage';
+import OrdersPage from './pages/OrdersPage/OrdersPage';
+import CartPage from './pages/CartPage/CartPage';
 import './App.css';
 
 function App() {

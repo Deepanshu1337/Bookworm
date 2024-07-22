@@ -3,9 +3,10 @@
     text-align: center;
     color: white;
     text-shadow: 0px 0px 2px white;
-    top: -50px;
-    padding: 100px 20px;
+    top: -10px;
+    padding: 40px 20px;
     overflow: hidden; /* Ensure child elements are contained */
+    margin-bottom: 0;
   }
   
   .hero::before {

@@ -29,6 +29,10 @@ body {
 .flex{
   display: flex;
 }
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
 .justify-center{
   justify-content: center;
 }
@@ -41,3 +45,12 @@ body {
 .text-center{
   text-align: center;
 }
+
+/* book card styles */
+.book-list{
+  margin-top: 1rem;
+  display:flex;
+  gap : 1.5rem;
+  flex-wrap: wrap;
+}
+
