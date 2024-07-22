@@ -21,10 +21,10 @@ function App() {
             <Route path="/orders" element={<OrdersPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/books" element={<BookPage />} />{" "}
-            {/* Add the new route */}
+            {/* Handles search queries */}
           </Routes>
         </main>
-        {/* <Footer /> */}
+      
       </div>
     </Router>
   );
