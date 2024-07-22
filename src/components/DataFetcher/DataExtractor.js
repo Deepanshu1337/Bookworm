@@ -4,12 +4,18 @@ import BookCard from "../../components/layouts/BookCard/BookCard";
 
 const DataExtractor = ({ book }) => {
   const { saleInfo, volumeInfo } = book;
+  
+  
   const coverImage =
     volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/128x194";
+  
+  
   const price = saleInfo.retailPrice
     ? Math.floor(saleInfo.retailPrice.amount)
     : "Not Available";
+  
   const title = getTitle(volumeInfo);
+  
   const authors = getAuthors(volumeInfo);
 
   function getTitle(volumeInfo) {
