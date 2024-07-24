@@ -32,7 +32,11 @@ const BookDataHandler = ({ query, maxResults }) => {
     fetchData();
   }, [query, maxResults]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return (
+    <div className="loader-container">
+      <div className="loader">Loading...</div>;
+    </div>
+  );
   if (error) return <div>{error}</div>;
 
   return (

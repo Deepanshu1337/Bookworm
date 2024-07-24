@@ -6,6 +6,7 @@
   --text-color: #333333;
   --black: #000;
   --white: #fff;
+  --form-background-color: #b1edb6;
 }
 
 * {
@@ -21,28 +22,34 @@ body {
   color: var(--text-color);
 }
 
-.container{
+.container {
   height: 100%;
   width: 90%;
   margin: 0 auto;
 }
-.flex{
+
+.flex {
   display: flex;
 }
-.flex-column{
+
+.flex-column {
   display: flex;
   flex-direction: column;
 }
-.justify-center{
+
+.justify-center {
   justify-content: center;
 }
-.justify-between{
+
+.justify-between {
   justify-content: space-between;
 }
-.align-center{
+
+.align-center {
   align-items: center;
 }
-.text-center{
+
+.text-center {
   text-align: center;
 }
 
@@ -55,3 +62,4 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
 }
+

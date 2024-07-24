@@ -1,5 +1,6 @@
 /* src/components/CartPage.styles.css */
 .cart-page {
+    position: relative;
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;

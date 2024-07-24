@@ -10,10 +10,10 @@ const BookCard = ({ title, authors, coverImage, price, bookId }) => {
   const dispatch = useDispatch();
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const userId = useSelector((state) => state.auth.userId); 
+  const userId = useSelector((state) => state.auth.userId);
 
-  const handleDetailsClick = (bookId) => {
-
+  const handleDetailsClick = (  bookId) => {
+   
     navigate(`/book-details/${bookId}`);
   };
 
