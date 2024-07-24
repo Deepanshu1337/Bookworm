@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../Redux/AuthSlice"; // Import actions
 import "./Header.styles.css";
 import SearchIcon from "../../../assets/search_icon.svg";
 import AccountIcon from "../../../assets/account.svg";
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const [searchQuery, setSearchQuery] = React.useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    localStorage.setItem("redirectPath", location.pathname); // Store the current path
+    navigate("/login"); // Navigate to login page
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    dispatch(logout()); // Dispatch logout action
+    navigate("/"); // Redirect to home or any page after logout
   };
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      console.log(
-        "Navigating to:",
-        `/books?query=${encodeURIComponent(searchQuery)}`
-      );
       navigate(`/books?query=${encodeURIComponent(searchQuery)}`);
-    } else {
-      console.log("Search query is empty");
     }
   };
 
@@ -89,16 +89,17 @@ const Header = () => {
               <li className="dropdown">
                 <img src={AccountIcon} className="account-icon" alt="Account" />
                 <button className="dropbtn">My Account</button>
-
                 <div className="dropdown-content">
                   <button onClick={handleLogin} className="button-login">
                     Login
                   </button>
-                  <Link className="dropdown-link text-center">
+                  <Link to="/signup" className="dropdown-link text-center">
                     New to Bookworm? Sign Up
                   </Link>
                   <hr />
-                  <Link className="password">Change Password</Link>
+                  <Link to="/change-password" className="password">
+                    Change Password
+                  </Link>
                 </div>
               </li>
             )}

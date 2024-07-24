@@ -26,7 +26,6 @@ const BookPage = () => {
         <h1>Books</h1>
         <BookDataHandler query={query} maxResults={40} />
       </div>
-      <Footer/>
     </>
   );
 };
