@@ -32,19 +32,19 @@ const cartSlice = createSlice({
       updateLocalStorage(userId, state.items);
     },
     removeItem(state, action) {
-      const { userId, id } = action.payload;
-      state.items = state.items.filter((item) => item.id !== id);
+      const { itemId, userId } = action.payload;
+      state.items = state.items.filter((item) => item.bookId !== itemId);
       state.showNotification = state.items.length > 0;
       updateLocalStorage(userId, state.items);
     },
     decreaseItem(state, action) {
-      const { userId, id } = action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+      const { itemId, userId } = action.payload;
+      const existingItem = state.items.find((item) => item.bookId === itemId);
       if (existingItem) {
         if (existingItem.quantity > 1) {
           existingItem.quantity -= 1;
         } else {
-          state.items = state.items.filter((item) => item.id !== id);
+          state.items = state.items.filter((item) => item.bookId !== itemId);
         }
       }
       state.showNotification = state.items.length > 0;

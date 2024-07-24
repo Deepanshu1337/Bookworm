@@ -8,13 +8,11 @@ import "./CartPage.styles.css";
 const CartPage = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-  const userId = useSelector((state) => state.auth.userId); 
-
+  const userId = useSelector((state) => state.auth.userId);
 
   const handleClearCart = () => {
-    dispatch(clearCart({ userId })); 
+    dispatch(clearCart({ userId }));
   };
-
 
   const handleCheckout = () => {
     alert("Proceeding to checkout...");

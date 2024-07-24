@@ -51,6 +51,12 @@ const LoginPage = () => {
 
       const redirectPath =
         JSON.parse(localStorage.getItem("redirectPath")) || "/";
+
+      if (redirectPath == "/login") {
+        navigate("/");
+        return;
+      }
+        
       navigate(redirectPath);
     }
   };
