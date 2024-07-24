@@ -14,12 +14,17 @@ const Header = () => {
   const location = useLocation();
 
   const handleLogin = () => {
-    localStorage.setItem("redirectPath", location.pathname); // Store the current path
+    // Store the current path including query parameters as a string
+    localStorage.setItem(
+      "redirectPath",
+      JSON.stringify(location.pathname + location.search)
+    );
     navigate("/login"); // Navigate to login page
   };
 
   const handleLogout = () => {
     dispatch(logout()); // Dispatch logout action
+    localStorage.removeItem("redirectPath"); // Clear redirect path on logout
     navigate("/"); // Redirect to home or any page after logout
   };
 

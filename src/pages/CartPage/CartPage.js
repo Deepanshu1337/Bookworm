@@ -1,42 +1,57 @@
 // src/components/CartPage.jsx
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeItem, clearCart } from "../../components/Redux/CartSlice";
-import "./CartPage.styles.css"
+import { clearCart } from "../../components/Redux/CartSlice";
+import CartItems from "../../components/layouts/CartItems/CartItems";
+import "./CartPage.styles.css";
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
+  const userId = useSelector((state) => state.auth.userId); 
 
-  const handleRemoveItem = (item) => {
-    dispatch(removeItem(item));
-  };
 
   const handleClearCart = () => {
-    dispatch(clearCart());
+    dispatch(clearCart({ userId })); 
+  };
+
+
+  const handleCheckout = () => {
+    alert("Proceeding to checkout...");
   };
 
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price, 0);
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
   };
 
+
   return (
-    <div>
+    <div className="cart-page">
       <h2>Your Cart</h2>
-      <button onClick={handleClearCart}>Clear Cart</button>
+      <div className="cart-actions">
+        <button className="clear-cart-btn" onClick={handleClearCart}>
+          Clear Cart
+        </button>
+        <button className="checkout-btn" onClick={handleCheckout}>
+          Checkout
+        </button>
+      </div>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p className="empty-cart">Your cart is empty</p>
       ) : (
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.id}>
-              {item.name} - ${item.price}
-              <button onClick={() => handleRemoveItem(item)}>Remove</button>
-            </li>
-          ))}
-        </ul>
+        <CartItems items={cartItems} />
       )}
-      <h3>Total: ${calculateTotal()}</h3>
+      <h3 className="total">Total: &#8377;{calculateTotal()}</h3>
+      {cartItems.length > 0 && (
+        <div className="cart-actions bottom">
+          <button className="checkout-btn" onClick={handleCheckout}>
+            Checkout
+          </button>
+        </div>
+      )}
     </div>
   );
 };

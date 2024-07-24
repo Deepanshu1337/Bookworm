@@ -1,12 +1,11 @@
-// src/components/AuthForm/AuthForm.jsx
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   loginSuccess,
   signupSuccess,
   loginFailure,
-  signupFailure,
 } from "../../redux/reducers/authSlice";
+import { v4 as uuidv4 } from "uuid";
 import "./AuthForm.styles.css";
 
 const AuthForm = ({ type }) => {
@@ -58,18 +57,27 @@ const AuthForm = ({ type }) => {
         return;
       }
 
-      // Simulate signup process
-      const userData = { firstName, lastName, email, phoneNumber, password };
-      localStorage.setItem("user", JSON.stringify(userData));
+      const userId = uuidv4(); // Generate a unique user ID
+      const userData = {
+        userId,
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        password,
+      };
+      localStorage.setItem(userId, JSON.stringify(userData));
       dispatch(signupSuccess(userData));
     } else if (type === "login") {
-      const storedUser = JSON.parse(localStorage.getItem(firstName));
-      if (
-        storedUser &&
-        storedUser.email === email &&
-        storedUser.password === password
-      ) {
-        dispatch(loginSuccess(storedUser));
+      const users = Object.keys(localStorage).map((key) =>
+        JSON.parse(localStorage.getItem(key))
+      );
+      const user = users.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (user) {
+        dispatch(loginSuccess(user));
       } else {
         dispatch(loginFailure("Invalid credentials"));
       }

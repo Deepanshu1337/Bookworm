@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../components/Redux/AuthSlice"; // Import actions
+import { signupSuccess, loginSuccess } from "../../components/Redux/AuthSlice";
+import { setCartItems } from "../../components/Redux/CartSlice";
+import { v4 as uuidv4 } from "uuid";
 import "./SignupPage.styles.css";
 
 const SignupPage = () => {
@@ -38,12 +40,22 @@ const SignupPage = () => {
     event.preventDefault();
 
     if (validateForm()) {
-      // Save user data to local storage
-      const userData = { firstName, lastName, email, phone, password };
-      localStorage.setItem("user", JSON.stringify(userData));
+      const userId = uuidv4(); // Generate a unique user ID
+      const userData = { userId, firstName, lastName, email, phone, password };
 
-      // Log in the user and redirect
-      dispatch(loginSuccess(userData)); // Assuming this action will handle login
+      // Save user data to localStorage
+      localStorage.setItem(userId, JSON.stringify(userData));
+
+      // Initialize an empty cart for the new user
+      localStorage.setItem(`cart_${userId}`, JSON.stringify([]));
+
+      // Dispatch Redux actions
+      dispatch(signupSuccess({ user: userData, userId }));
+      dispatch(setCartItems([])); // Initialize cart in Redux
+
+      // Log in the user
+      dispatch(loginSuccess({ user: userData, userId }));
+
       const redirectPath = localStorage.getItem("redirectPath") || "/";
       navigate(redirectPath);
     }
@@ -62,7 +74,7 @@ const SignupPage = () => {
         <h2>Create an Account</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <div className="input-erroor">
+            <div className="input-error">
               <input
                 type="text"
                 placeholder="First Name"
@@ -91,7 +103,7 @@ const SignupPage = () => {
           />
           {errors.email && <p className="error">{errors.email}</p>}
           <input
-            type="number"
+            type="tel"
             placeholder="Phone Number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}

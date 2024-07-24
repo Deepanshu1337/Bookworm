@@ -10,34 +10,35 @@ import BookPage from "./pages/BookPage/Bookpage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignUpPage/SignUpPage";
 import ProtectedRoute from "./components/ProtectedRoutes/ProtectedRoute";
+import GlobalCartNotification from "./components/GlobalNotification/GlobalNotification";
 
 function App() {
   return (
-      <Router>
-        <div className="App">
-          <Header />
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/orders" element={<OrdersPage />} />
-              <Route
-                path="/cart"
-                element={
-                  <ProtectedRoute>
-                    <CartPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/books" element={<BookPage />} />
-              <Route path="/book-details/:id" element={<BookDetailsPage />} />
-              <Route path="/login" element={<LoginPage />} />{" "}
-              <Route path="/signup" element={<SignupPage />} />
-              {/* Add Login route */}
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
+    <Router>
+      <div className="App">
+        <Header />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/orders" element={<OrdersPage />} />
+            <Route
+              path="/cart"
+              element={
+                <ProtectedRoute>
+                  <CartPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/books" element={<BookPage />} />
+            <Route path="/book-details/:bookId" element={<BookDetailsPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+          </Routes>
+        </main>
+        <Footer />
+        <GlobalCartNotification /> {/* Add the notification component */}
+      </div>
+    </Router>
   );
 }
 

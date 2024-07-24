@@ -5,20 +5,29 @@ import { addItem } from "../../Redux/CartSlice";
 import "./BookCard.styles.css";
 import CartIcon from "../../../assets/cart.png";
 
-const BookCard = ({ title, authors, coverImage, price, id }) => {
+const BookCard = ({ title, authors, coverImage, price, bookId }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  const handleDetailsClick = (id) => {
-    navigate(`/book-details/${id}`);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const userId = useSelector((state) => state.auth.userId); 
+
+  const handleDetailsClick = (bookId) => {
+
+    navigate(`/book-details/${bookId}`);
   };
 
   const handleAddToCart = () => {
-    if (isLoggedIn) {
-      const book = { title, authors, coverImage, price, id };
-      dispatch(addItem(book));
-      navigate("/cart");
+    if (isLoggedIn && userId) {
+      const bookDetails = {
+        bookId,
+        name: title,
+        price,
+        coverImage,
+        quantity: 1,
+        userId,
+      };
+      dispatch(addItem(bookDetails));
     } else {
       alert("Please login first");
     }
@@ -30,17 +39,16 @@ const BookCard = ({ title, authors, coverImage, price, id }) => {
       <div className="book-details">
         <h3>{title}</h3>
         <p>
-          by <span className="book-card-author"> {authors}</span>
+          by <span className="book-card-author">{authors}</span>
         </p>
         <p>
-          Price : <span className="book-card-price">&#8377; {price}</span>
+          Price: <span className="book-card-price">&#8377; {price}</span>
         </p>
       </div>
-
       <div className="btn-grp">
         <button
           className="details-btn btn"
-          onClick={() => handleDetailsClick(id)}
+          onClick={() => handleDetailsClick(bookId)}
         >
           Details
         </button>

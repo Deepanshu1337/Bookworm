@@ -47,7 +47,7 @@ const BookDataHandler = ({ query, maxResults }) => {
               title={bookData.title}
               authors={bookData.authors}
               price={bookData.price}
-              id={bookData.id}
+              bookId={bookData.bookId}
             />
           );
         })
@@ -64,7 +64,7 @@ export function ExtractBookData(book) {
 
   const title = getTitle(volumeInfo);
   const authors = getAuthors(volumeInfo);
-  const id = getId(book);
+  const bookId = getBookId(book);
   const coverImage = getCoverImage(volumeInfo);
   const price = getPrice(saleInfo);
   const description = getDescription(volumeInfo);
@@ -76,10 +76,10 @@ export function ExtractBookData(book) {
     title,
     authors,
     price,
-    id,
+    bookId,
     description,
     pageCount,
-    eTag
+    eTag,
   };
 }
 
@@ -98,7 +98,7 @@ function getAuthors(volumeInfo) {
   return authors.length > 1 ? `${authors[0]}, ...` : authors.join(", ");
 }
 
-function getId(book) {
+function getBookId(book) {
   return book.id ? book.id : "Error";
 }
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../components/Redux/AuthSlice"; // Import actions
-import { Link } from "react-router-dom";
+import { loginSuccess } from "../../components/Redux/AuthSlice";
+import { setCartItems } from "../../components/Redux/CartSlice";
 import "./LoginPage.styles.css";
 
 const LoginPage = () => {
@@ -12,15 +12,24 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const getUsersFromLocalStorage = () => {
+    return Object.keys(localStorage).map((key) =>
+      JSON.parse(localStorage.getItem(key))
+    );
+  };
+
+  const findUser = (users) => {
+    return users.find(
+      (user) => user.email === email && user.password === password
+    );
+  };
+
   const validateForm = () => {
-    console.log("validating login");
     const newErrors = {};
-    const userData = JSON.parse(localStorage.getItem("user")) || {};
+    const users = getUsersFromLocalStorage();
+    const user = findUser(users);
 
-    console.log("userData :", userData); 
-    console.log(userData.email == email, userData.password == password);
-
-    if (userData.email !== email || userData.password !== password) {
+    if (!user) {
       newErrors.credentials = "Invalid email or password";
     }
     setErrors(newErrors);
@@ -29,13 +38,19 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
 
     if (validateForm()) {
-      console.log("login validated successfully");
-      // Log in the user and redirect
-      dispatch(loginSuccess({ email, password })); // Assuming this action will handle login
-      const redirectPath = localStorage.getItem("redirectPath") || "/";
+      const users = getUsersFromLocalStorage();
+      const user = findUser(users);
+
+      dispatch(loginSuccess({ user: user, userId: user.userId }));
+      
+      const storedCart =
+        JSON.parse(localStorage.getItem(`cart_${user.userId}`)) || [];
+      dispatch(setCartItems(storedCart));
+
+      const redirectPath =
+        JSON.parse(localStorage.getItem("redirectPath")) || "/";
       navigate(redirectPath);
     }
   };
