@@ -67,6 +67,8 @@ const AuthForm = ({ type }) => {
         password,
       };
       localStorage.setItem(userId, JSON.stringify(userData));
+      localStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem("isLoggedIn", "true");
       dispatch(signupSuccess(userData));
     } else if (type === "login") {
       const users = Object.keys(localStorage).map((key) =>

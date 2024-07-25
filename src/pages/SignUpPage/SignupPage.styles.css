@@ -13,18 +13,18 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    padding: 2rem;
+    padding: 3.2rem;
     text-align: center;
     background: rgba(0, 0, 0, 0.5);
 }
 
 .signup-text h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 4.8rem;
+    margin-bottom: 1.6rem;
 }
 
 .signup-text p {
-    font-size: 1.25rem;
+    font-size: 2rem;
 }
 
 .signup-form {
@@ -34,33 +34,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 3.2rem;
     margin: 0 auto;
     background-color: #22222248;
     align-self: center;
-    border-radius: 1rem;
+    border-radius: 1.6rem;
 }
 
 .signup-container {
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
+    padding: 3.2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px;
+    max-width: 40rem;
 }
 
 .signup-form h2 {
-    font-size: 2rem;
+    font-size: 3.2rem;
     color: #ddd;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.4rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
     width: 100%;
 }
 
@@ -70,31 +70,31 @@
 .signup-form input[type="number"],
 .signup-form input[type="password"] {
     width: 100%;
-    padding: 0.75rem;
-    margin: 0.5rem 0;
+    padding: 1.2rem;
+    margin: 8px 0;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.6rem;
 }
 
 .form-group input {
     width: 49%;
-    padding: 0.75rem;
-    margin-top: 0.5rem;
+    padding: 1.2rem;
+    margin-top: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.6rem;
 }
 
 .signup-form button[type="submit"] {
     width: 100%;
-    padding: 0.75rem;
-    margin-top: 1rem;
+    padding: 1.2rem;
+    margin-top: 1.6rem;
     background-color: var(--dark-color);
     color: #fff;
     border: none;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.6rem;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -106,7 +106,7 @@
 
 .error {
     color: #e74c3c;
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
     display: block;
 }
 .input-error{

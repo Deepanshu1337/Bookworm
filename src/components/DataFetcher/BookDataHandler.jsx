@@ -52,6 +52,8 @@ const BookDataHandler = ({ query, maxResults }) => {
               authors={bookData.authors}
               price={bookData.price}
               bookId={bookData.bookId}
+              bookDesc={bookData.description}
+              totalAuthors={bookData.totalAuthors}
             />
           );
         })
@@ -68,6 +70,7 @@ export function ExtractBookData(book) {
 
   const title = getTitle(volumeInfo);
   const authors = getAuthors(volumeInfo);
+  const totalAuthors = geTotaltAuthors(volumeInfo);
   const bookId = getBookId(book);
   const coverImage = getCoverImage(volumeInfo);
   const price = getPrice(saleInfo);
@@ -84,6 +87,7 @@ export function ExtractBookData(book) {
     description,
     pageCount,
     eTag,
+    totalAuthors,
   };
 }
 
@@ -96,10 +100,29 @@ function getTitle(volumeInfo) {
   return titleStr.split("/")[0].trim();
 }
 
+// function getAuthors(volumeInfo) {
+//   const authors = volumeInfo.authors || [];
+//   if (authors.length === 0) return "Unknown author";
+//   return authors[0];
+// }
 function getAuthors(volumeInfo) {
   const authors = volumeInfo.authors || [];
   if (authors.length === 0) return "Unknown author";
-  return authors.length > 1 ? `${authors[0]}, ...` : authors.join(", ");
+
+  // Check if the first element of the array is a single string with multiple authors
+  const firstAuthor = authors[0];
+  if (typeof firstAuthor === "string" && firstAuthor.includes(",")) {
+    return firstAuthor.split(",")[0].trim();
+  }
+
+  // If it's already an array of individual authors, return the first one
+  return firstAuthor;
+}
+
+function geTotaltAuthors(volumeInfo) {
+  const authors = volumeInfo.authors || [];
+  if (authors.length === 0) return "Unknown author";
+  return authors
 }
 
 function getBookId(book) {
@@ -123,7 +146,6 @@ function getDescription(volumeInfo) {
     ? volumeInfo.description
     : "No description available";
 }
-
 function getPageCount(volumeInfo) {
   return volumeInfo.pageCount ? volumeInfo.pageCount : "Unknown";
 }

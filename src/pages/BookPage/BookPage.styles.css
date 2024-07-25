@@ -1,9 +1,8 @@
-.books-page h1{
+.books-page h1 {
     text-align: center;
-    margin-top: 2rem;
-    
-}
-.book-page{
-    min-height: 90vh;
+    margin-top: 3.2rem;
 }
 
+.book-page {
+    min-height: 14.4rem;
+}

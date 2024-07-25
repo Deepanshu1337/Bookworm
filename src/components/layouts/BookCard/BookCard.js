@@ -5,15 +5,20 @@ import { addItem } from "../../Redux/CartSlice";
 import "./BookCard.styles.css";
 import CartIcon from "../../../assets/cart.png";
 
-const BookCard = ({ title, authors, coverImage, price, bookId }) => {
+const BookCard = ({
+  title,
+  authors,
+  coverImage,
+  price,
+  bookId,
+}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userId = useSelector((state) => state.auth.userId);
 
-  const handleDetailsClick = (  bookId) => {
-   
+  const handleDetailsClick = (bookId) => {
     navigate(`/book-details/${bookId}`);
   };
 
@@ -35,25 +40,30 @@ const BookCard = ({ title, authors, coverImage, price, bookId }) => {
 
   return (
     <div className="book-card">
-      <img src={coverImage} alt={title} className="book-cover" />
+      <div className="image-overlay">
+        <img src={coverImage} alt={title} className="book-cover" />
+        <div className="overlay-top">
+          <button
+            className="details-btn btn"
+            onClick={() => handleDetailsClick(bookId)}
+          >
+            Details
+          </button>
+        </div>
+      </div>
       <div className="book-details">
         <h3>{title}</h3>
         <p>
-          by <span className="book-card-author">{authors}</span>
+          by : <span className="book-card-author">{authors}</span>
         </p>
         <p>
           Price: <span className="book-card-price">&#8377; {price}</span>
         </p>
       </div>
-      <div className="btn-grp">
-        <button
-          className="details-btn btn"
-          onClick={() => handleDetailsClick(bookId)}
-        >
-          Details
-        </button>
+      <div className="overlay-bottom">
         <button className="cart-btn btn" onClick={handleAddToCart}>
-          Add To <img src={CartIcon} alt="Add to Cart" />
+          Add To Cart{" "}
+          <img src={CartIcon} alt="cartIcon" className="cart-icon" />
         </button>
       </div>
     </div>

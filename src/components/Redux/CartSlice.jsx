@@ -11,14 +11,28 @@ const updateLocalStorage = (userId, items) => {
   }
 };
 
+const loadCartFromLocalStorage = (userId) => {
+  if (userId) {
+    const storedCart = localStorage.getItem(`cart_${userId}`);
+    return storedCart ? JSON.parse(storedCart) : [];
+  }
+  return [];
+};
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    setCartItems(state, action) {
-      state.items = action.payload;
+    initializeCart(state, action) {
+      const { userId } = action.payload;
+      state.items = loadCartFromLocalStorage(userId);
       state.showNotification = state.items.length > 0;
-      updateLocalStorage(action.payload.userId, state.items);
+    },
+    setCartItems(state, action) {
+      const { items = [], userId } = action.payload;
+      state.items = items;
+      state.showNotification = items.length > 0;
+      updateLocalStorage(userId, state.items);
     },
     addItem(state, action) {
       const { userId, bookId } = action.payload;
@@ -52,8 +66,6 @@ const cartSlice = createSlice({
     },
     clearCart(state, action) {
       const { userId } = action.payload;
-      // const finalUserId = String(userId);
-      // console.log(finalUserId);
       state.items = [];
       state.showNotification = false;
       if (userId) {
@@ -63,6 +75,12 @@ const cartSlice = createSlice({
   },
 });
 
-export const { setCartItems, addItem, removeItem, decreaseItem, clearCart } =
-  cartSlice.actions;
+export const {
+  initializeCart,
+  setCartItems,
+  addItem,
+  removeItem,
+  decreaseItem,
+  clearCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;

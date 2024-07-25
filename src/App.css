@@ -1,5 +1,3 @@
-
-  /* Global CSS Reset */
 * {
   margin: 0;
   padding: 0;
@@ -12,5 +10,5 @@ body {
 
 .main-content {
 
-  margin-top: 10px; /* To avoid overlap with fixed header */
+  margin-top: 1rem; 
 }

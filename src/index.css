@@ -1,25 +1,28 @@
 :root {
-  --primary-color: #508D4E;
-  --secondary-color: #80AF81;
-  --background-color: #D6EFD8;
-  --dark-color: #1A5319;
-  --text-color: #333333;
+  --primary-white: rgb(240, 240, 240);
+  --background: #f1f1f1;
+  --background-hover: #f6e1e1;
+  --price-color: #63997c;
+  --card-title: #676767;
+  --red: #d51912;
+  --light: #f8f9fa;
+  --gray-dark: #343a40;
+  --gray-light: #9da8b2;
   --black: #000;
   --white: #fff;
   --form-background-color: #b1edb6;
+  font-size: 62.5%;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.3s ease-in;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--white);
-  color: var(--text-color);
+  background-color: var(--background);
 }
 
 .container {
@@ -53,13 +56,24 @@ body {
   text-align: center;
 }
 
-/* book card styles */
+
 .book-list {
-  margin-top: 1rem;
+  margin-top: 1.6rem;
   display: flex;
-  margin: 3rem 0;
+  margin: 4.8rem 0;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.6rem;
+
 }
+
+.cart-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-left: 5px;
+  
+      
+ 
+}
+
 

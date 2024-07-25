@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../components/Redux/AuthSlice";
+import { handleLogin } from "../../components/Redux/AuthSlice";
 import { setCartItems } from "../../components/Redux/CartSlice";
 import "./LoginPage.styles.css";
 
@@ -43,8 +43,8 @@ const LoginPage = () => {
       const users = getUsersFromLocalStorage();
       const user = findUser(users);
 
-      dispatch(loginSuccess({ user: user, userId: user.userId }));
-      
+      dispatch(handleLogin(user));
+
       const storedCart =
         JSON.parse(localStorage.getItem(`cart_${user.userId}`)) || [];
       dispatch(setCartItems(storedCart));
@@ -56,7 +56,7 @@ const LoginPage = () => {
         navigate("/");
         return;
       }
-        
+
       navigate(redirectPath);
     }
   };

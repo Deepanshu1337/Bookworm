@@ -53,7 +53,7 @@ const CartPage = () => {
           </div>
         )}
       </div>
-      <CheckoutForm/>
+      {/* <CheckoutForm/> */}
     </>
   );
 };

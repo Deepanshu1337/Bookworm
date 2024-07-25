@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Footer.styles.css";
+import LinkedInIcon from "../../../assets/LinkedIn.png"
+import GitHubIcon from "../../../assets/GItHub.png"
+import InstaIcon from "../../../assets/Instagram.png"
 
 const Footer = () => {
   const [name, setName] = useState("");
@@ -34,10 +37,11 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        
         <div className="right-footer">
           <div className="footer-about">
-            <h2>About Us</h2>
+            <h2>
+              <span>About </span>Us
+            </h2>
             <p>
               We provide the best services to help you achieve your goals.
               Connect with us through our social media channels and stay
@@ -46,22 +50,26 @@ const Footer = () => {
           </div>
 
           <div className="footer-social">
-            <h2>Follow Us</h2>
+            <h2>
+              <span>Follow</span> Us
+            </h2>
             <div className="social-icons">
               <Link to="#">
-                <img src="facebook-icon.png" alt="Facebook" />
+                <img src={LinkedInIcon} alt="LinkedIn" />
               </Link>
               <Link to="#">
-                <img src="twitter-icon.png" alt="Twitter" />
+                <img src={GitHubIcon} alt="GitHub" />
               </Link>
               <Link to="#">
-                <img src="instagram-icon.png" alt="Instagram" />
+                <img src={InstaIcon} alt="Instagram" />
               </Link>
             </div>
           </div>
         </div>
         <div className="footer-form">
-          <h2>Contact Us</h2>
+          <h2>
+            <span>Contact</span> Us
+          </h2>
           <form onSubmit={handleSubmit}>
             <div className="form-field">
               <label htmlFor="name">Name:</label>
@@ -89,8 +97,6 @@ const Footer = () => {
           </form>
         </div>
       </div>
-
-
 
       <div className="footer-bottom">
         <p>&copy; 2024 Bookworm. All rights reserved.</p>

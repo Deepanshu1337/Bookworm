@@ -12,6 +12,7 @@ const HomePage = () => (
     {/* <GenreContainer /> */}
     <div className="container">
       <div className="home-page-books-container">
+        <h1 >Books that you may interest</h1>
         <TrendingBooks />
     
       </div>
