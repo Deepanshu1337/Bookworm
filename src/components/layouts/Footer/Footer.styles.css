@@ -106,7 +106,9 @@
   border-top: 0.1rem solid var(--secondary-color);
 }
 .footer-bottom p{
+  border-top: 1px solid var(--red);
   font-size: 1.4rem;
   color: var(--gray-dark);
   font-weight: bold;
+  padding-top: 1rem;
 }

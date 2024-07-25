@@ -72,7 +72,7 @@ const SignupPage = () => {
       </div>
       <div className="signup-form">
         <h2>Create an Account</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-container">
           <div className="form-group">
             <div className="input-error">
               <input
@@ -81,7 +81,7 @@ const SignupPage = () => {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
-              {errors.firstName && <p className="error">{errors.firstName}</p>}
+              {errors.firstName && <p className="signup-error">{errors.firstName}</p>}
             </div>
             <div className="input-error">
               <input
@@ -91,7 +91,7 @@ const SignupPage = () => {
                 onChange={(e) => setLastName(e.target.value)}
                 className="name-input"
               />
-              {errors.lastName && <p className="error">{errors.lastName}</p>}
+              {errors.lastName && <p className="signup-error">{errors.lastName}</p>}
             </div>
           </div>
           <input
@@ -101,21 +101,21 @@ const SignupPage = () => {
             onChange={(e) => setEmail(e.target.value)}
             className="name-input"
           />
-          {errors.email && <p className="error">{errors.email}</p>}
+          {errors.email && <p className="signup-error">{errors.email}</p>}
           <input
             type="tel"
             placeholder="Phone Number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          {errors.phone && <p className="error">{errors.phone}</p>}
+          {errors.phone && <p className="signup-error">{errors.phone}</p>}
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {errors.password && <p className="error">{errors.password}</p>}
+          {errors.password && <p className="signup-error">{errors.password}</p>}
           <input
             type="password"
             placeholder="Confirm Password"
@@ -123,7 +123,7 @@ const SignupPage = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           {errors.confirmPassword && (
-            <p className="error">{errors.confirmPassword}</p>
+            <p className="signup-error">{errors.confirmPassword}</p>
           )}
           <button type="submit">Sign Up</button>
         </form>
