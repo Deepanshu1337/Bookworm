@@ -5,7 +5,7 @@ import { logout } from "../../Redux/AuthSlice"; // Import actions
 import "./Header.styles.css";
 import SearchIcon from "../../../assets/search_icon.svg";
 import AccountIcon from "../../../assets/account.svg";
-import CartIcon from "../../../assets/cart.png"
+import CartIcon from "../../../assets/cart.png";
 
 const Header = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
@@ -104,12 +104,15 @@ const Header = () => {
                 </>
               ) : (
                 <li className="dropdown">
-                  <img
-                    src={AccountIcon}
-                    className="account-icon"
-                    alt="Account"
-                  />
-                  <button className="dropbtn">My Account</button>
+                  <div className="dropdown-menu">
+                    <img
+                      src={AccountIcon}
+                      className="account-icon"
+                      alt="Account"
+                    />
+                    <button className="dropbtn">My Account</button>
+                  </div>
+
                   <div className="dropdown-content">
                     <button onClick={handleLogin} className="button-login">
                       Login
@@ -128,7 +131,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
-      <hr  className="hr"/>
+      <hr className="hr" />
     </>
   );
 };

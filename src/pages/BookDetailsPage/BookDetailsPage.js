@@ -7,6 +7,12 @@ import CartIcon from "../../assets/cart.png";
 import "./BookDetailsPage.styles.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../components/Redux/CartSlice";
+import { tailspin } from 'ldrs'
+
+tailspin.register()
+
+// Default values shown
+
 
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes";
 
@@ -60,9 +66,13 @@ const BookDetailPage = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return (
+    <div className="loader-container">
+      <l-tailspin size="40" stroke="5" speed="0.9" color="black"></l-tailspin>
+    </div>
+  );
   if (error) return <div>{error}</div>;
-  if (!book) return <div>No book found.</div>;
+  if (!book) return <div className="error">No book found.</div>;
 
   const { coverImage, title, authors, price, description, pageCount } = book;
 

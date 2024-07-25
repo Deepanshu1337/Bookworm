@@ -1,6 +1,10 @@
-.books-page h1 {
+.book-page h1 {
+color: var(--gray-dark);
+    font-size: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--red);
+    width: 100%;
     text-align: center;
-    margin-top: 3.2rem;
 }
 
 .book-page {

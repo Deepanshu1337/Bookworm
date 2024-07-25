@@ -32,9 +32,6 @@ const CartPage = () => {
       <div className="cart-page">
         <h2>Your Cart</h2>
         <div className="cart-actions">
-          <button className="clear-cart-btn" onClick={handleClearCart}>
-            Clear Cart
-          </button>
           <button className="checkout-btn" onClick={handleCheckout}>
             Checkout
           </button>
@@ -47,6 +44,9 @@ const CartPage = () => {
         <h3 className="total">Total: &#8377;{calculateTotal()}</h3>
         {cartItems.length > 0 && (
           <div className="cart-actions bottom">
+            <button className="clear-cart-btn" onClick={handleClearCart}>
+              Clear Cart
+            </button>
             <button className="checkout-btn" onClick={handleCheckout}>
               Checkout
             </button>

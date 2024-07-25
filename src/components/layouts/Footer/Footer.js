@@ -54,13 +54,16 @@ const Footer = () => {
               <span>Follow</span> Us
             </h2>
             <div className="social-icons">
-              <Link to="#">
+              <Link
+                to="https://www.linkedin.com/in/deepanshudixit280/"
+                target="_blank"
+              >
                 <img src={LinkedInIcon} alt="LinkedIn" />
               </Link>
-              <Link to="#">
+              <Link to="https://github.com/Deepanshu1337" target="_blank">
                 <img src={GitHubIcon} alt="GitHub" />
               </Link>
-              <Link to="#">
+              <Link to="https://instagram.com/deepanshud1337/" target="_blank">
                 <img src={InstaIcon} alt="Instagram" />
               </Link>
             </div>

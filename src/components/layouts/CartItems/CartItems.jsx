@@ -5,26 +5,26 @@ import "./CartItems.styles.css";
 
 const CartItems = () => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.auth.userId); // Get userId from the Redux store
+  const userId = useSelector((state) => state.auth.userId); 
   const items = useSelector((state) => state.cart.items);
 
-  // Memoize the filtered items for the logged-in user
+ 
   const filteredItems = useMemo(
     () => items.filter((item) => item.userId === userId),
     [items, userId]
   );
 
   const handleRemoveItem = (item) => {
-    dispatch(removeItem({ itemId: item.bookId, userId })); // Use the correct property
+    dispatch(removeItem({ itemId: item.bookId, userId })); 
   };
 
   const handleIncreaseQuantity = (item) => {
-    dispatch(addItem({ ...item, userId })); // Include userId
+    dispatch(addItem({ ...item, userId })); 
   };
 
   const handleDecreaseQuantity = (item) => {
     if (item.quantity > 1) {
-      dispatch(decreaseItem({ itemId: item.bookId, userId })); // Use the correct property
+      dispatch(decreaseItem({ itemId: item.bookId, userId })); 
     } else {
       handleRemoveItem(item);
     }

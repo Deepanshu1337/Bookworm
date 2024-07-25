@@ -23,7 +23,7 @@ const BookPage = () => {
   return (
     <>
       <div className="book-page">
-        <h1>Books</h1>
+        <h1>Result for you searched query</h1>
         <BookDataHandler query={query} maxResults={40} />
       </div>
     </>

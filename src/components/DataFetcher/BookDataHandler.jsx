@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import BookCard from "../../components/layouts/BookCard/BookCard";
+import { tailspin } from 'ldrs'
+tailspin.register()
+
+
 
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes";
 
@@ -34,7 +38,7 @@ const BookDataHandler = ({ query, maxResults }) => {
 
   if (loading) return (
     <div className="loader-container">
-      <div className="loader">Loading...</div>;
+      <l-tailspin size="40" stroke="5" speed="0.9" color="black"></l-tailspin>;
     </div>
   );
   if (error) return <div>{error}</div>;

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 :root {
   --primary-white: rgb(240, 240, 240);
   --background: #f1f1f1;
@@ -5,6 +8,7 @@
   --price-color: #63997c;
   --card-title: #676767;
   --red: #d51912;
+  --red-btn-hover: #76120f;
   --light: #f8f9fa;
   --gray-dark: #343a40;
   --gray-light: #9da8b2;
@@ -23,6 +27,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: var(--background);
+  font-family: "Roboto",sans-serif;
 }
 
 .container {
@@ -71,9 +76,19 @@ body {
   width: 1.8rem;
   height: 1.8rem;
   margin-left: 5px;
-  
-      
- 
 }
 
 
+.loader-container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error{
+  font-size: 3rem;
+    height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
