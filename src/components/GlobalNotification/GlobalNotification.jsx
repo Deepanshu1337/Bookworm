@@ -24,7 +24,10 @@ const GlobalCartNotification = () => {
         <span>
           {cartItems.length} item(s) with {totalQuantity} quantity in your cart.
         </span>
-        <button className="go-to-cart-btn" onClick={() => navigate("/cart")}>
+        <button className="go-to-cart-btn" onClick={() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          navigate("/cart");
+        } }>
           Go to Cart
         </button>
       </div>

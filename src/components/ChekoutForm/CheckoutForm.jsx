@@ -1,70 +1,161 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CheckoutForm.styles.css";
 
-function CheckoutForm() {
+function CheckoutForm({ onBackToCart, onPurchase }) {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    street: "",
+    city: "",
+    state: "",
+    zip: "",
+    phone: "",
+    cardNum: "",
+    expire: "",
+    security: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onPurchase(formData);
+  };
+
   return (
     <div className="ch-form-body">
       <div className="ch-form-wrapper">
         <div className="ch-form-container">
-          <form action="" className="ch-form">
+          <form className="ch-form" onSubmit={handleSubmit}>
             <h1>
               <i className="fas fa-shipping-fast"></i>
               Shipping Details
             </h1>
 
-            <div className="ch-form-name">
-              <div>
-                <label for="f-name">First</label>
-                <input type="text" name="f-name" />
-              </div>
-              <div>
-                <label for="l-name">Last</label>
-                <input type="text" name="l-name" />
-              </div>
-            </div>
-
-            <div classNameName="street">
-              <label for="name">Street</label>
-              <input type="text" name="address" />
-            </div>
-
-            <div classNameName="address-info">
-              <div className="city-state">
-                <div>
-                  <label for="city">City</label>
-                  <input type="text" name="city" />
+            <div className="ch-form-details">
+              <div className="shipping-details">
+                <div className="ch-form-name">
+                  <div>
+                    <label htmlFor="firstName">First Name</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName">Last Name</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
-
-                <div>
-                  <label for="state">State</label>
-                  <input type="text" name="state" />
+                <div className="street">
+                  <label htmlFor="street">Street</label>
+                  <input
+                    type="text"
+                    name="street"
+                    value={formData.street}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="address-info">
+                  <div className="city-state">
+                    <div>
+                      <label htmlFor="city">City</label>
+                      <input
+                        type="text"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="state">State</label>
+                      <input
+                        type="text"
+                        name="state"
+                        value={formData.state}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="zip">Zip</label>
+                    <input
+                      type="text"
+                      name="zip"
+                      value={formData.zip}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="phone">
+                  <label htmlFor="phone">Phone</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
-              <div>
-                <label for="zip">Zip</label>
-                <input type="text" name="zip" />
+              <div className="payment-info">
+                <h1>
+                  <i className="far fa-credit-card"></i> Payment Information
+                </h1>
+                <div className="cc-num">
+                  <label htmlFor="cardNum">Credit Card No.</label>
+                  <input
+                    type="text"
+                    name="cardNum"
+                    value={formData.cardNum}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="cc-info">
+                  <div>
+                    <label htmlFor="expire">Exp</label>
+                    <input
+                      type="text"
+                      name="expire"
+                      value={formData.expire}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="security">CCV</label>
+                    <input
+                      type="text"
+                      name="security"
+                      value={formData.security}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-            <h1>
-              <i classNameName="far fa-credit-card"></i> Payment Information
-            </h1>
-            <div classNameName="cc-num">
-              <label for="card-num">Credit Card No.</label>
-              <input type="text" name="card-num" />
-            </div>
-            <div classNameName="cc-info">
-              <div>
-                <label for="card-num">Exp</label>
-                <input type="text" name="expire" />
-              </div>
-              <div>
-                <label for="card-num">CCV</label>
-                <input type="text" name="security" />
-              </div>
-            </div>
-            <div classNameName="ch-form-btns">
-              <button className="ch-form-btn">Purchase</button>
-              <button className="ch-form-btn">Back to cart</button>
+            <div className="ch-form-btns">
+              <button type="submit" className="ch-form-btn" >
+                Purchase
+              </button>
+              <button
+                type="button"
+                className="ch-form-btn"
+                onClick={onBackToCart}
+              >
+                Back to cart
+              </button>
             </div>
           </form>
         </div>

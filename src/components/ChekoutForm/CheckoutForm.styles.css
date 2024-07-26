@@ -1,155 +1,200 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo');
 
-
-
-
 .ch-form-body {
-position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 80vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     z-index: 2;
+    background-color: transparent
 }
 
 .ch-form-wrapper {
-margin-top: 5%;
-    width: 80%;
+    width: 100%;
+    max-width: 800px;
     display: flex;
     justify-content: center;
     font-family: "Arimo";
     border-radius: 8px;
-    background-color: var(--form-background-color);
+    background-color: transparent;
     box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
-    animation: slideUp 2000ms ease;
+    animation: popUp 1s ease-out;
 }
 
-@keyframes slideUp {
+@keyframes popUp {
     0% {
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-        visibility: visible;
+        transform: scale(0.9);
+        opacity: 0;
     }
 
     100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-
+        transform: scale(1);
+        opacity: 1;
     }
 }
 
 .ch-form-container {
-    width: 65%;
-    padding: 5% 10%;
-}
-
-h1 {
-    align-self: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: #493b3b8e;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.408);
+    max-width: 1000px;
+    transition: all 0.3s ease-in;
 }
 
 .ch-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-
-    >* {
-        margin-top: 20px;
-    }
-
-    input {
-        width: 100%;
-        min-height: 25px;
-        border: 0;
-        font-size: 1rem;
-        letter-spacing: .15rem;
-        font-family: "Arimo";
-        margin-top: 5px;
-        color: var(--text-color);
-        border-radius: 4px;
-    }
-
-    label {
-        text-transform: uppercase;
-        font-size: 12px;
-        letter-spacing: 2px;
-        color: var(--text-color);
-    }
-
-    h1 {
-        font-size: 24px;
-        line-height: 10px;
-        color: var(--title);
-        letter-spacing: 1px;
-    }
-
-    h1:nth-of-type(2) {
-        margin-top: 10%;
-    }
 }
 
-.ch-form-name {
-    justify-content: space-between;
+.ch-form h1 {
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--title);
+    letter-spacing: 1px;
     display: flex;
-    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-    div {
-        width: 45%;
-    }
+.ch-form h1:nth-of-type(2) {
+    margin-top: 10%;
+}
+
+.ch-form-details {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.shipping-details,
+.payment-info {
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.shipping-details h2,
+.payment-info h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.shipping-details label,
+.payment-info label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--text-color);
+}
+
+.shipping-details input,
+.payment-info input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    color: var(--text-color);
+    min-height: 25px;
+    border: 0;
+    font-family: "Arimo";
 }
 
 .address-info {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
-    div {
-        width: 30%;
-    }
+.city-state {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.city-state div,
+.street,
+.phone {
+    flex: 1;
 }
 
 .cc-info {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
-    div {
-        width: 45%;
-    }
+.cc-info div {
+    flex: 1;
 }
 
 .ch-form-btns {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
 }
-   .ch-form-btn {
-       margin: 3px 0;
-       height: 30px;
-       width: 40%;
-       color: #cfc9e1;
-       background-color: #4a3b76;
-       text-transform: uppercase;
-       border: 0;
-       border-radius: .3rem;
-       letter-spacing: 2px;
 
-       
-   }
-   .ch-form-btn:hover {
-       animation-name: btn-hov;
-       animation-duration: 550ms;
-       animation-fill-mode: forwards;
-   }
+.ch-form-btn {
+    width: 15rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    height: 30px;
+    flex: 1;
+}
+
+.ch-form-btn:hover {
+    background-color: #0056b3;
+}
+
+.ch-form-btn:focus {
+    outline: none;
+}
+
+.ch-form-btn:last-child {
+    background-color: #222;
+}
+
+.ch-form-btn:last-child:hover {
+    background-color: #5a6268;
+}
 
 @keyframes btn-hov {
     100% {
         background-color: #cfc9e1;
         color: #4a3b76;
-        transform: scale(1.05)
+        transform: scale(1.05);
     }
 }
 
-input:focus,
-button:focus {
-    outline: none;
+.ch-form-btn:hover {
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
 }
 
 @media (max-width: 736px) {
@@ -162,16 +207,15 @@ button:focus {
     }
 
     .ch-form-btns {
+        flex-direction: column;
         align-items: center;
-
-
     }
 
-    .ch-from-btn {
+    .ch-form-btn {
         width: 50%;
     }
 
-    .ch-form-form h1 {
+    .ch-form h1 {
         text-align: center;
     }
 
@@ -181,8 +225,6 @@ button:focus {
         flex-direction: column;
         width: 100%;
         justify-content: space-between;
-
-
     }
 
     .cc-info div {
@@ -202,7 +244,8 @@ button:focus {
         min-height: 30px;
     }
 }
-.city-state{
-    display: flex;
-    gap: 1rem;
+
+input:focus,
+button:focus {
+    outline: none;
 }
