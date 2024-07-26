@@ -1,5 +1,5 @@
 // src/components/CartPage.jsx
-import React from "react";
+import React,{useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../components/Redux/CartSlice";
 import CartItems from "../../components/layouts/CartItems/CartItems";
@@ -10,14 +10,15 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   const userId = useSelector((state) => state.auth.userId);
+  const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 
   const handleClearCart = () => {
     dispatch(clearCart({ userId }));
   };
 
-  const handleCheckout = () => {
-    alert("Proceeding to checkout...");
-  };
+   const handleCheckout = () => {
+     setIsCheckoutVisible(true);
+   };
 
   const calculateTotal = () => {
     return cartItems.reduce(
@@ -56,7 +57,7 @@ const CartPage = () => {
           )}
         </div>
       </div>
-      {/* <CheckoutForm/> */}
+      {isCheckoutVisible && <CheckoutForm />}
     </>
   );
 };
