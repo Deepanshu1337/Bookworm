@@ -6,6 +6,7 @@ import "./Header.styles.css";
 import SearchIcon from "../../../assets/search_icon.svg";
 import AccountIcon from "../../../assets/account.svg";
 import CartIcon from "../../../assets/cart.png";
+import "./HeaderMediaQuries.styles.css"
 
 const Header = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
@@ -81,11 +82,11 @@ const Header = () => {
                       Home
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/orders" className="nav-links">
                       Orders
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to="/cart" className="nav-links">
                       <img
@@ -131,7 +132,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
-      <hr className="hr" />
+      
     </>
   );
 };

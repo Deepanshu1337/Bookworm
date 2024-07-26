@@ -5,6 +5,7 @@ import { signupSuccess, loginSuccess } from "../../components/Redux/AuthSlice";
 import { setCartItems } from "../../components/Redux/CartSlice";
 import { v4 as uuidv4 } from "uuid";
 import "./SignupPage.styles.css";
+import "./SignupMediaQuries.styles.css"
 
 const SignupPage = () => {
   const [firstName, setFirstName] = useState("");

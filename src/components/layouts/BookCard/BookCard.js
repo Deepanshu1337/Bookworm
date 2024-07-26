@@ -5,13 +5,7 @@ import { addItem } from "../../Redux/CartSlice";
 import "./BookCard.styles.css";
 import CartIcon from "../../../assets/cart.png";
 
-const BookCard = ({
-  title,
-  authors,
-  coverImage,
-  price,
-  bookId,
-}) => {
+const BookCard = ({ title, authors, coverImage, price, bookId }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -20,6 +14,7 @@ const BookCard = ({
 
   const handleDetailsClick = (bookId) => {
     navigate(`/book-details/${bookId}`);
+    window.scrollTo(0,0)
   };
 
   const handleAddToCart = () => {
@@ -40,17 +35,7 @@ const BookCard = ({
 
   return (
     <div className="book-card">
-      <div className="image-overlay">
-        <img src={coverImage} alt={title} className="book-cover" />
-        <div className="overlay-top">
-          <button
-            className="details-btn btn"
-            onClick={() => handleDetailsClick(bookId)}
-          >
-            Details
-          </button>
-        </div>
-      </div>
+      <img src={coverImage} alt={title} className="book-cover" />
       <div className="book-details">
         <h3>{title}</h3>
         <p>
@@ -59,12 +44,18 @@ const BookCard = ({
         <p>
           Price: <span className="book-card-price">&#8377; {price}</span>
         </p>
-      </div>
-      <div className="overlay-bottom">
-        <button className="cart-btn btn" onClick={handleAddToCart}>
-          Add To Cart{" "}
-          <img src={CartIcon} alt="cartIcon" className="cart-icon" />
-        </button>
+        <div className="card-buttons">
+          <button
+            className="details-btn btn"
+            onClick={() => handleDetailsClick(bookId)}
+          >
+            Details
+          </button>
+          <button className="cart-btn btn" onClick={handleAddToCart}>
+            Add To{" "}
+            <img src={CartIcon} alt="cartIcon" className="card-cart-icon cart-icon" />
+          </button>
+        </div>
       </div>
     </div>
   );

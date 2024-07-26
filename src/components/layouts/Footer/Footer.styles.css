@@ -73,6 +73,10 @@
   resize: vertical;
   height: 10rem;
 }
+.footer-btn-container{
+  display: flex;
+  justify-content: end;
+}
 
 .footer button[type="submit"] {
   background-color: var(--red);

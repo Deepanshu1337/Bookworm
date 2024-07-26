@@ -7,12 +7,11 @@ import CartIcon from "../../assets/cart.png";
 import "./BookDetailsPage.styles.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../components/Redux/CartSlice";
-import { tailspin } from 'ldrs'
+import { tailspin } from "ldrs";
 
-tailspin.register()
+tailspin.register();
 
 // Default values shown
-
 
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes";
 
@@ -21,12 +20,11 @@ const BookDetailPage = () => {
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   const dispatch = useDispatch();
 
-  const userId = useSelector((state) => state.auth.userId); 
+  const userId = useSelector((state) => state.auth.userId);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -50,6 +48,33 @@ const BookDetailPage = () => {
     fetchBookDetails();
   }, [bookId]);
 
+  if (loading)
+    return (
+      <div className="loader-container">
+        <l-tailspin size="40" stroke="5" speed="0.9" color="black"></l-tailspin>
+      </div>
+    );
+  if (error) return <div>{error}</div>;
+  if (!book) return <div className="error">No book found.</div>;
+
+  const {
+    coverImage,
+    title,
+    authors,
+    price,
+    description,
+    pageCount,
+    categories,
+  } = book;
+
+  function convertHtmlToText(html) {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html;
+    return tempDiv.textContent || tempDiv.innerText || "";
+  }
+
+  const plainTextDescription = convertHtmlToText(description);
+
   const handleAddToCart = () => {
     if (isLoggedIn && userId) {
       const bookDetails = {
@@ -59,30 +84,13 @@ const BookDetailPage = () => {
         coverImage,
         quantity: 1,
         userId,
+        categories,
       };
       dispatch(addItem(bookDetails));
     } else {
       alert("Please login first");
     }
   };
-
-  if (loading) return (
-    <div className="loader-container">
-      <l-tailspin size="40" stroke="5" speed="0.9" color="black"></l-tailspin>
-    </div>
-  );
-  if (error) return <div>{error}</div>;
-  if (!book) return <div className="error">No book found.</div>;
-
-  const { coverImage, title, authors, price, description, pageCount } = book;
-
-  function convertHtmlToText(html) {
-    const tempDiv = document.createElement("div");
-    tempDiv.innerHTML = html;
-    return tempDiv.textContent || tempDiv.innerText || "";
-  }
-
-  const plainTextDescription = convertHtmlToText(description);
 
   return (
     <section className="detail-section-container">
@@ -102,6 +110,9 @@ const BookDetailPage = () => {
             </p>
             <p className="book-description">
               {plainTextDescription || "No description available."}
+            </p>
+            <p>
+              <b>Categories :</b> {categories}
             </p>
             <p>
               <b>Book Length:</b> {pageCount || "Not available"} pages

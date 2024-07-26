@@ -25,7 +25,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onPurchase(formData);
+    onPurchase();
   };
 
   return (
@@ -48,6 +48,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div>
@@ -57,6 +58,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -67,6 +69,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                     name="street"
                     value={formData.street}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="address-info">
@@ -78,6 +81,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                         name="city"
                         value={formData.city}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                     <div>
@@ -87,6 +91,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                         name="state"
                         value={formData.state}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                   </div>
@@ -97,6 +102,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                       name="zip"
                       value={formData.zip}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -107,6 +113,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -121,6 +128,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                     name="cardNum"
                     value={formData.cardNum}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="cc-info">
@@ -131,6 +139,7 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                       name="expire"
                       value={formData.expire}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div>
@@ -140,13 +149,14 @@ function CheckoutForm({ onBackToCart, onPurchase }) {
                       name="security"
                       value={formData.security}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
               </div>
             </div>
             <div className="ch-form-btns">
-              <button type="submit" className="ch-form-btn" >
+              <button type="submit" className="ch-form-btn">
                 Purchase
               </button>
               <button

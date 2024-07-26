@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo');
 
+.order-success {
+    text-align: center;
+    font-size: 1.5rem;
+    color: green;
+    margin-top: 2rem;
+}
+
 .ch-form-body {
     position: absolute;
     top: 0;
@@ -8,7 +15,7 @@
     justify-content: center;
     align-items: center;
     z-index: 2;
-    background-color: transparent
+    background-color: transparent;
 }
 
 .ch-form-wrapper {

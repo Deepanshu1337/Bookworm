@@ -1,0 +1,9 @@
+@media (max-width: 800px) {
+    .signup-text{
+        display: none;
+    }
+    .signup-form{
+            width: 72%;
+                padding: 2rem 8rem;
+    }
+}

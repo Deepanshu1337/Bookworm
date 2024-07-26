@@ -6,10 +6,11 @@
   margin: 1rem;
   text-align: center;
   width: 20rem;
-  height: 30rem;
+  min-height: 30rem;
+  max-height: 35rem;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: all 0.2s ease-in;
 }
 
 .book-card:hover {
@@ -18,68 +19,22 @@
 }
 
 .book-cover {
-  object-fit: cover;
+  object-fit:fill;
   width: 100%;
-  height: 100%;
+  height: 60%;
   border-radius: 4px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-
 }
-.image-overlay {
-  position: relative;
-  width: 100%;
-  height: 65%;
-  overflow: hidden;
-
-}
-
-
-
-.overlay-top,
-.overlay-bottom {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.overlay-top {
-  top: -100%;
-}
-
-.overlay-bottom {
-  bottom: -100%;
-  height: 35%;
-  background-color: rgba(0, 0, 0, 0.786);
-}
-
-.book-card:hover .overlay-top {
-  top: 0;
-  opacity: 1;
-}
-
-.book-card:hover .overlay-bottom {
-  bottom: 0;
-  opacity: 1;
-}
-
 
 .book-details {
   padding: 1rem;
   transition: opacity 0.3s ease;
   position: relative;
   height: 35%;
-  background-color: var(--background);
 }
 
 .book-details h3 {
   font-size: 1.8rem;
-  margin: 1rem 0;
   color: var(--card-title);
 }
 
@@ -99,23 +54,35 @@
   color: var(--red) !important;
 }
 
+.card-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
   border-radius: 5px;
-  background-color: #fdfdfd;
-  color: #000;
+  background-color: var(--red);
+  color: #fff;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
+ .card-cart-icon {
+   filter: invert() brightness(200%);
+ }
 .btn:hover {
-  background-color: rgba(42, 39, 39, 0.7);
+  background-color:var(--red-btn-hover) !important;
   color: #fff;
 }
-.btn:hover .cart-icon{
-  filter: invert() brightness(200%);
+
+.btn:hover  {
+  transform: scale(1.1);
+
 }
