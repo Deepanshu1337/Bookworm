@@ -17,6 +17,11 @@
   --form-background-color: #b1edb6;
   font-size: 62.5%;
 }
+@media (max-width:600px) {
+  :root {
+    font-size: 55%;
+  }
+}
 
 * {
   margin: 0;

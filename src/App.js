@@ -11,13 +11,13 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignUpPage/SignUpPage";
 import ProtectedRoute from "./components/ProtectedRoutes/ProtectedRoute";
 import GlobalCartNotification from "./components/GlobalNotification/GlobalNotification";
-
+import "./App.css"
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
-        <main className="main-content">
+        
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/orders" element={<OrdersPage />} />
@@ -34,7 +34,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
           </Routes>
-        </main>
+    
         <Footer />
         <GlobalCartNotification /> {/* Add the notification component */}
       </div>

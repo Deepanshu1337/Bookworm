@@ -1,0 +1,7 @@
+@media (max-width: 600px) {
+.cart-page{
+    min-height: 125vh;
+    display: flex;
+    justify-content: center;
+}
+}

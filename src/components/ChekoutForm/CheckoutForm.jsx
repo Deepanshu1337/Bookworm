@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CheckoutForm.styles.css";
+import "./CheckOutFomMediaQuries.css";
 
 function CheckoutForm({ onBackToCart, onPurchase }) {
   const [formData, setFormData] = useState({

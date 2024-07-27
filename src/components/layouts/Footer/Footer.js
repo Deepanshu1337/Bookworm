@@ -75,7 +75,7 @@ const Footer = () => {
             </>
           </div>
         </div>
-        {/* <div className="footer-form">
+        <div className="footer-form">
           <>
             <h2>
               <span>Contact</span> Us
@@ -112,7 +112,7 @@ const Footer = () => {
               </div>
             </form>
           </>
-        </div> */}
+        </div>
       </div>
 
       <div className="footer-bottom">

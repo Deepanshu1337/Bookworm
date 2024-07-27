@@ -1,10 +1,10 @@
 .signup-page {
-    margin-top: -1rem;
     display: flex;
     height: 90vh;
     background: url('../../assets/login-page-background.jpg') no-repeat center center fixed;
     background-size: cover;
     flex-direction: row;
+    padding: 4rem 0;
 }
 
 .signup-text {
@@ -37,7 +37,7 @@
     justify-content: center;
     align-items: center;
     padding: 3.2rem;
-    margin: 0 auto;
+    margin: 2rem auto;
     background-color: #1d1d1d64;
     align-self: center;
     border-radius: 1.6rem;

@@ -1,9 +1,48 @@
-@media (max-width: 800px) {
-    .signup-text{
+@media (max-width: 950px) {
+    .signup-text  {
         display: none;
     }
-    .signup-form{
-            width: 72%;
-                padding: 2rem 8rem;
+
+    .signup-form {
+        width: 72%;
+        padding: 2rem 8rem;
     }
+}
+@media (max-width: 800px) {
+    .signup-text {
+        display: none;
+    }
+
+    .signup-form {
+        max-height: 200vh;
+        width: 72%;
+        padding: 2rem 8rem;
+    }
+}
+
+@media (max-width:600px) {
+    .signup-page{
+       height: 100vh;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .input-error{
+        width: 100%;
+    }
+    .input-error input{
+width: 100% !important;
+    }
+
+    .signup-form {
+        margin-top: 4rem;
+        padding: 2rem 2rem;
+    }
+
+    .form-container {
+        width: 75%;
+    }
+
 }

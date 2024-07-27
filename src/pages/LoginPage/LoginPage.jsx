@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { handleLogin } from "../../components/Redux/AuthSlice";
 import { setCartItems } from "../../components/Redux/CartSlice";
 import "./LoginPage.styles.css";
+import "./LoginPageMediaQueries.css"
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -52,7 +53,7 @@ const LoginPage = () => {
       const redirectPath =
         JSON.parse(localStorage.getItem("redirectPath")) || "/";
 
-      if (redirectPath === "/login") {
+      if (redirectPath === "/login" || redirectPath === "/signup") {
         navigate("/");
         return;
       }

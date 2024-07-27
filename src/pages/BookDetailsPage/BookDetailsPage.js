@@ -8,6 +8,7 @@ import "./BookDetailsPage.styles.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../components/Redux/CartSlice";
 import { tailspin } from "ldrs";
+import "./BookDetailsPageMediaQueries.styles.css"
 
 tailspin.register();
 

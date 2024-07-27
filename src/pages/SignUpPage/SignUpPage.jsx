@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./SignupPage.styles.css";
 import "./SignupMediaQuries.styles.css"
 
+
 const SignupPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");

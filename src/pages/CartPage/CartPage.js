@@ -5,6 +5,7 @@ import CartItems from "../../components/layouts/CartItems/CartItems";
 import CheckoutForm from "../../components/ChekoutForm/CheckoutForm.jsx"; // Ensure correct path
 import { useNavigate } from "react-router-dom";
 import "./CartPage.styles.css";
+import "./CartPage.mediaQuries.css"
 
 const CartPage = () => {
   const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
