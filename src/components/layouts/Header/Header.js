@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/AuthSlice";
 import "./Header.styles.css";
-import SearchIcon from "../../../assets/search_icon.svg";
 import AccountIcon from "../../../assets/account.svg";
 import CartIcon from "../../../assets/cart.png";
 import "./HeaderMediaQuries.styles.css";
@@ -11,7 +10,6 @@ import "./HeaderMediaQuries.styles.css";
 const Header = () => {
   const { isLoggedIn, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const [searchQuery, setSearchQuery] = React.useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const CartItemsCount = useSelector((state) => state.cart.items.length);
@@ -38,51 +36,21 @@ const Header = () => {
     navigate("/signup");
   };
 
-  const handleSearch = () => {
-    if (searchQuery.trim()) {
-      navigate(`/books?query=${encodeURIComponent(searchQuery)}`);
-    }
-  };
-
-  const handleChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  };
-
   return (
     <header className="header">
       <div className="container flex justify-between align-center">
         <Link to="/" className="logo">
           {isLoggedIn && user ? (
-            <>
+            <div className="logged-user">
               Welcome back{" "}
               <span className="text-primary">{user.firstName}</span>
-            </>
+            </div>
           ) : (
-            <>
+            <div>
               Book<span className="text-primary">worm</span>
-            </>
+            </div>
           )}
         </Link>
-
-        <div className="search-bar">
-          <input
-            type="text"
-            className="search-bar-input"
-            placeholder="Search by Title, Author and Genre..."
-            value={searchQuery}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-          />
-          <button className="search-button" onClick={handleSearch}>
-            <img src={SearchIcon} className="search-button-icon" alt="Search" />
-          </button>
-        </div>
 
         <nav className="nav">
           <ul>
