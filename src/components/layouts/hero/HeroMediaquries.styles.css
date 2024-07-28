@@ -1,8 +1,9 @@
-@media (max-width: 600px){
-    .hero h1{
+@media (max-width: 600px) {
+    .hero h1 {
         font-size: 2.8rem;
     }
-   .hero {
-    padding: 5.4rem 3.2rem;
+
+    .hero {
+        padding: 5.4rem 3.2rem;
     }
 }

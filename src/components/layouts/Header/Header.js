@@ -9,7 +9,7 @@ import CartIcon from "../../../assets/cart.png";
 import "./HeaderMediaQuries.styles.css";
 
 const Header = () => {
-  const { isLoggedIn } = useSelector((state) => state.auth);
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = React.useState("");
   const navigate = useNavigate();
@@ -58,7 +58,16 @@ const Header = () => {
     <header className="header">
       <div className="container flex justify-between align-center">
         <Link to="/" className="logo">
-          Book<span className="text-primary">worm</span>
+          {isLoggedIn && user ? (
+            <>
+              Welcome back{" "}
+              <span className="text-primary">{user.firstName}</span>
+            </>
+          ) : (
+            <>
+              Book<span className="text-primary">worm</span>
+            </>
+          )}
         </Link>
 
         <div className="search-bar">

@@ -3,11 +3,11 @@
   text-align: center;
   color: white;
   text-shadow: 0 0 0.2rem white;
-  top: -1.6rem;
   padding: 6.4rem 3.2rem;
   overflow: hidden;
-  margin-bottom: -2rem;
-
+  height: calc(100vh - var(--header-height));
+  /* Set height to fill the viewport minus header height */
+  margin-bottom: 0;
 }
 
 .hero::before {
@@ -19,7 +19,7 @@
   height: 100%;
   background: url('../../../assets/Hero-section-img.jpg') no-repeat center center;
   background-size: cover;
-  filter: blur(0.4rem);
+  filter: blur(0.1rem);
   z-index: -1;
 }
 
@@ -31,3 +31,4 @@
 .hero p {
   font-size: 1.92rem;
 }
+
