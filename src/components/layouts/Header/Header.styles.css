@@ -184,3 +184,7 @@
   text-decoration: underline;
   color: rgb(0, 76, 255);
 }
+.signup-button{
+  border: none;
+  outline:none;
+}

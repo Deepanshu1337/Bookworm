@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, addItem, decreaseItem } from "../../Redux/CartSlice";
 import "./CartItems.styles.css";
+import  "./CartItems.mediaquries.css"
 
 const CartItems = () => {
   const dispatch = useDispatch();

@@ -1,34 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo');
 
-.order-success {
-    text-align: center;
-    font-size: 1.5rem;
-    color: green;
-    margin-top: 2rem;
-}
-
-.ch-form-body {
+.checkout-form-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    background-color: transparent;
-}
-
-.ch-form-wrapper {
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    justify-content: center;
-    font-family: "Arimo";
-    border-radius: 8px;
-    background-color: transparent;
-    box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
+    top: 13vh;
+    left: 20vw;
+    width: 60vw;
+    padding: 2rem;
+    background-color: #241717;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 15px rgba(170, 171, 233, 0.866);
+    transition: all 0.3s ease-in;
     animation: popUp 1s ease-out;
 }
+
 
 @keyframes popUp {
     0% {
@@ -42,15 +26,6 @@
     }
 }
 
-.ch-form-container {
-    width: 100%;
-    padding: 2rem;
-    background-color: #493b3b8e;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.408);
-    max-width: 1000px;
-    transition: all 0.3s ease-in;
-}
 
 .ch-form {
     display: flex;
@@ -60,10 +35,14 @@
     width: 100%;
 }
 
+.ch-form .label {
+    color: #fff;
+}
+
 .ch-form h1 {
+    color: #fff;
     font-size: 24px;
     line-height: 1.2;
-    color: var(--title);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -76,6 +55,7 @@
 }
 
 .ch-form-details {
+    width: 100%;
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
@@ -159,14 +139,17 @@
 }
 
 .ch-form-btn {
-    width: 15rem;
+    min-width: 0;
     background-color: #007bff;
     color: #fff;
+    font-weight: 500;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 30px;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
     transition: background-color 0.3s;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -188,6 +171,13 @@
 
 .ch-form-btn:last-child:hover {
     background-color: #5a6268;
+}
+
+.order-success {
+    text-align: center;
+    font-size: 1.5rem;
+    color: green;
+    margin-top: 2rem;
 }
 
 @keyframes btn-hov {

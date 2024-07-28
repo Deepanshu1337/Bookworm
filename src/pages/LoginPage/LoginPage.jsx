@@ -33,7 +33,7 @@ const LoginPage = () => {
     const user = findUser(users);
 
     if (!user) {
-      newErrors.credentials = "Invalid email or password";
+      newErrors.credentials = "Either user not found or incorrect credentials";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

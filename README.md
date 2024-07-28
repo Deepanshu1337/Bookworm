@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Simple React JS Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is the use of this Repo
 
-## Available Scripts
+This Project is a Book Ecommerce store using ReactJs which includes the following functionalities :
 
-In the project directory, you can run:
+1. Google books API is used in this project so You can search any book by its name, author or genre.
+2. You can see the Details of the book by clicking the details button or you can add the book to the cart if looged in
+3. You can sign up and Login, Right now the authentication data is stored in the local storage.
+4. You can see the cart and also manupulate the quanity as well as you can remove items from the cart or you can empty the cart comletely.
+5. A demo payment gatway is created so that a purchase experience can be given to users.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Install Node JS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Refer to https://nodejs.org/en/ to install nodejs
 
-### `npm test`
+## Live Application URL
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Application is deployed in https://aditya-sridhar.github.io/simple-reactjs-app
 
-### `npm run build`
+Click on the link to see the application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Cloning and Running the Application in local
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone the project into local
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install all the npm packages. Go into the project folder and type the following command to install all npm packages
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+In order to run the application Type the following command
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The Application Runs on **localhost:3000**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Application design
 
-## Learn More
+### Pages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Homepage** : Here you can see header main page and a fotter. You can search books here and also you can login and signup.
+2. **Books Page** : you can see the books here according to your search criteria, you can add the book to your cart or you can see the details of the book
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Book Detail Page** : you will see the details of the book here like Name of the books, Author, Category of the book, price and page count.
 
-### Code Splitting
+4. **Cart Page** : here you will see the books you added to the cart. You can increase or decrease the quantity of the books, remove the item, clear the cart or you can chekout and proceed to dummy payments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5. **Login Page** : Here you will see the login page wher you can login to your account if you previously signed up.
 
-### Analyzing the Bundle Size
+6. **Sign Up Page** : you can sign up for your account here, some validation rules are required.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### HTTP client
 
-### Making a Progressive Web App
+**axios** library is used to make API Calls
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Resources
 
-### Advanced Configuration
+**create-react-app** : The following link has all Resources :
+https://github.com/facebook/create-react-app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**ReactJS** : Refer to https://reactjs.org/ to understand the concepts of ReactJS

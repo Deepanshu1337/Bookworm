@@ -1,5 +1,6 @@
 // src/components/BookDetailPage.jsx
 import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ExtractBookData } from "../../components/DataFetcher/BookDataHandler";
@@ -22,7 +23,9 @@ const BookDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const dispatch = useDispatch();
+const navigate = useNavigate();
+const dispatch = useDispatch();
+const location = useLocation();
 
   const userId = useSelector((state) => state.auth.userId);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -89,7 +92,13 @@ const BookDetailPage = () => {
       };
       dispatch(addItem(bookDetails));
     } else {
-      alert("Please login first");
+       alert("Please login first");
+       localStorage.setItem(
+         "redirectPath",
+         JSON.stringify(location.pathname + location.search)
+      );
+      window.scrollTo(0, 0);
+       navigate("/login");
     }
   };
 

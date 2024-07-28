@@ -91,16 +91,16 @@ const Header = () => {
 
                   <button
                     onClick={handleSignUp}
-                    className="dropdown-link text-center"
+                    className="dropdown-link text-center signup-button"
                   >
                     New to Bookworm? Sign Up
                   </button>
 
                   <hr />
 
-                  <Link to="/change-password" className="password">
+                  {/* <Link to="/change-password" className="password">
                     Change Password
-                  </Link>
+                  </Link> */}
                 </div>
               </li>
             )}
