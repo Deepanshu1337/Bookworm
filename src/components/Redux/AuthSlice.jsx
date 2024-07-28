@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setCartItems, clearCart } from "./CartSlice"; // Import actions from cartSlice
+import { initializeCart, setCartItems, clearCart } from "./CartSlice";
 
 const initialState = {
   isLoggedIn: false,
@@ -18,8 +18,7 @@ const authSlice = createSlice({
       state.userId = action.payload.userId;
       state.error = null;
 
-      // Save to localStorage
-      localStorage.setItem("user", JSON.stringify(action.payload.user));
+      localStorage.setItem("Current_user", JSON.stringify(action.payload.user));
       localStorage.setItem("isLoggedIn", "true");
     },
     signupSuccess(state, action) {
@@ -28,17 +27,15 @@ const authSlice = createSlice({
       state.userId = action.payload.userId;
       state.error = null;
 
-      // Save to localStorage
-      localStorage.setItem("user", JSON.stringify(action.payload.user));
+      localStorage.setItem("Current_user", JSON.stringify(action.payload.user));
       localStorage.setItem("isLoggedIn", "true");
     },
-    logout(state, action) {
+    logout(state) {
       state.isLoggedIn = false;
       state.user = null;
       state.userId = null;
 
-      // Clear from localStorage
-      localStorage.removeItem("user");
+      localStorage.removeItem("Current_user");
       localStorage.removeItem("isLoggedIn");
     },
     loginFailure(state, action) {
@@ -50,15 +47,16 @@ const authSlice = createSlice({
   },
 });
 
-// Thunk action to handle login and retrieve cart items
 export const handleLogin = (user) => (dispatch) => {
   dispatch(loginSuccess({ user: user, userId: user.userId }));
-  const storedCart =
-    JSON.parse(localStorage.getItem(`cart_${user.userId}`)) || [];
-  dispatch(setCartItems(storedCart));
+  dispatch(initializeCart({ userId: user.userId }));
 };
 
-// Thunk action to handle logout and clear cart items
+export const handleSignup = (user) => (dispatch) => {
+  dispatch(signupSuccess({ user: user, userId: user.userId }));
+  dispatch(initializeCart({ userId: user.userId }));
+};
+
 export const handleLogout = (userId) => (dispatch) => {
   dispatch(logout());
   dispatch(clearCart({ userId }));

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import BookDataHandler from "../../components/DataFetcher/BookDataHandler";
 import "./BookPage.styles.css";
-import Footer from "../../components/layouts/Footer/Footer";
+
 
 const BookPage = () => {
   const [query, setQuery] = useState("");

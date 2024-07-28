@@ -20,31 +20,31 @@
 }
 @media (max-width:575px) {
     .ch-form-body {
-        left: 3rem;
+        left: 4.5rem;
     }
 }
 @media (max-width:525px) {
     .ch-form-body {
-        left: 2.5rem;
+        left: 4rem;
     }
 }
 @media (max-width:500px) {
     .ch-form-body {
-        left: 2rem;
+        left: 3.5rem;
     }
 }
 @media (max-width:450px) {
     .ch-form-body {
-        left: 1.5rem;
+        left: 3rem;
     }
 }
 @media (max-width:400px) {
     .ch-form-body {
-        left: 1rem;
+        left: 2.5rem;
     }
 }
 @media (max-width:350px) {
     .ch-form-body {
-        left: 0;
+        left: 2rem;
     }
 }

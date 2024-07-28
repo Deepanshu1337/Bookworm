@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../Redux/AuthSlice"; // Import actions
+import { logout } from "../../Redux/AuthSlice";
 import "./Header.styles.css";
 import SearchIcon from "../../../assets/search_icon.svg";
 import AccountIcon from "../../../assets/account.svg";
 import CartIcon from "../../../assets/cart.png";
-import "./HeaderMediaQuries.styles.css"
+import "./HeaderMediaQuries.styles.css";
 
 const Header = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
@@ -17,18 +17,25 @@ const Header = () => {
   const CartItemsCount = useSelector((state) => state.cart.items.length);
 
   const handleLogin = () => {
-    // Store the current path including query parameters as a string
     localStorage.setItem(
       "redirectPath",
       JSON.stringify(location.pathname + location.search)
     );
-    navigate("/login"); // Navigate to login page
+    navigate("/login");
   };
 
-  const handleLogout = () => {
-    dispatch(logout()); // Dispatch logout action
-    localStorage.removeItem("redirectPath"); // Clear redirect path on logout
-    navigate("/"); // Redirect to home or any page after logout
+  const handleLogOut = () => {
+    dispatch(logout());
+    localStorage.removeItem("redirectPath");
+    navigate("/");
+  };
+
+  const handleSignUp = () => {
+    localStorage.setItem(
+      "redirectPath",
+      JSON.stringify(location.pathname + location.search)
+    );
+    navigate("/signup");
   };
 
   const handleSearch = () => {
@@ -48,92 +55,82 @@ const Header = () => {
   };
 
   return (
-    <>
-      <header className="header">
-        <div className="container flex justify-between align-center">
-          <Link to="/" className="logo">
-            Book<span className="text-primary">worm</span>
-          </Link>
+    <header className="header">
+      <div className="container flex justify-between align-center">
+        <Link to="/" className="logo">
+          Book<span className="text-primary">worm</span>
+        </Link>
 
-          <div className="search-bar">
-            <input
-              type="text"
-              className="search-bar-input"
-              placeholder="Search by Title, Author and Genre..."
-              value={searchQuery}
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-            />
-            <button className="search-button" onClick={handleSearch}>
-              <img
-                src={SearchIcon}
-                className="search-button-icon"
-                alt="Search"
-              />
-            </button>
-          </div>
-
-          <nav className="nav">
-            <ul>
-              {isLoggedIn ? (
-                <>
-                  <li>
-                    <Link to="/" className="nav-links">
-                      Home
-                    </Link>
-                  </li>
-                  {/* <li>
-                    <Link to="/orders" className="nav-links">
-                      Orders
-                    </Link>
-                  </li> */}
-                  <li>
-                    <Link to="/cart" className="nav-links">
-                      <img
-                        src={CartIcon}
-                        className="cart-icon"
-                        alt="cart icon"
-                      />
-                      <span className="cart-item-count">{CartItemsCount}</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <button onClick={handleLogout} className="nav-links">
-                      Logout
-                    </button>
-                  </li>
-                </>
-              ) : (
-                <li className="dropdown">
-                  <div className="dropdown-menu">
-                    <img
-                      src={AccountIcon}
-                      className="account-icon"
-                      alt="Account"
-                    />
-                    <button className="dropbtn">My Account</button>
-                  </div>
-
-                  <div className="dropdown-content">
-                    <button onClick={handleLogin} className="button-login">
-                      Login
-                    </button>
-                    <Link to="/signup" className="dropdown-link text-center">
-                      New to Bookworm? Sign Up
-                    </Link>
-                    <hr />
-                    <Link to="/change-password" className="password">
-                      Change Password
-                    </Link>
-                  </div>
-                </li>
-              )}
-            </ul>
-          </nav>
+        <div className="search-bar">
+          <input
+            type="text"
+            className="search-bar-input"
+            placeholder="Search by Title, Author and Genre..."
+            value={searchQuery}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+          />
+          <button className="search-button" onClick={handleSearch}>
+            <img src={SearchIcon} className="search-button-icon" alt="Search" />
+          </button>
         </div>
-      </header>
-      
-    </>
+
+        <nav className="nav">
+          <ul>
+            {isLoggedIn ? (
+              <>
+                <li>
+                  <Link to="/" className="nav-links">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/cart" className="nav-links">
+                    <img src={CartIcon} className="cart-icon" alt="cart icon" />
+                    <span className="cart-item-count">{CartItemsCount}</span>
+                  </Link>
+                </li>
+                <li>
+                  <button onClick={handleLogOut} className="nav-links">
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li className="dropdown">
+                <div className="dropdown-menu">
+                  <img
+                    src={AccountIcon}
+                    className="account-icon"
+                    alt="Account"
+                  />
+                  <button className="dropbtn">My Account</button>
+                </div>
+
+                <div className="dropdown-content">
+                  <button onClick={handleLogin} className="button-login">
+                    Login
+                  </button>
+
+                  <button
+                    onClick={handleSignUp}
+                    className="dropdown-link text-center"
+                  >
+                    New to Bookworm? Sign Up
+                  </button>
+
+                  <hr />
+
+                  <Link to="/change-password" className="password">
+                    Change Password
+                  </Link>
+                </div>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 

@@ -1,11 +1,11 @@
+// store.js
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer, { loginSuccess } from "./AuthSlice";
 import cartReducer, { initializeCart } from "./CartSlice";
 
-// Function to get the initial authentication state from localStorage
 const getInitialAuthState = () => {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("Current_user")) || null;
 
   return {
     isLoggedIn,
@@ -27,7 +27,6 @@ const store = configureStore({
   },
 });
 
-// Dispatch loginSuccess and initializeCart if user is already logged in
 if (initialAuthState.isLoggedIn && initialAuthState.user) {
   store.dispatch(
     loginSuccess({

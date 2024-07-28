@@ -1,10 +1,11 @@
+// LoginPage.js
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { handleLogin } from "../../components/Redux/AuthSlice";
 import { setCartItems } from "../../components/Redux/CartSlice";
 import "./LoginPage.styles.css";
-import "./LoginPageMediaQueries.css"
+import "./LoginPageMediaQueries.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -14,9 +15,11 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   const getUsersFromLocalStorage = () => {
-    return Object.keys(localStorage).map((key) =>
-      JSON.parse(localStorage.getItem(key))
-    );
+    const keys = Object.keys(localStorage);
+    const users = keys
+      .filter((key) => key.startsWith("user_"))
+      .map((key) => JSON.parse(localStorage.getItem(key)));
+    return users;
   };
 
   const findUser = (users) => {
@@ -48,17 +51,20 @@ const LoginPage = () => {
 
       const storedCart =
         JSON.parse(localStorage.getItem(`cart_${user.userId}`)) || [];
-      dispatch(setCartItems(storedCart));
+      dispatch(setCartItems({ userId: user.userId, items: storedCart }));
 
-      const redirectPath =
-        JSON.parse(localStorage.getItem("redirectPath")) || "/";
+      let redirectPath = localStorage.getItem("redirectPath");
+      if (redirectPath) {
+        redirectPath = JSON.parse(redirectPath);
+        localStorage.removeItem("redirectPath");
 
-      if (redirectPath === "/login" || redirectPath === "/signup") {
-        navigate("/");
-        return;
+        if (redirectPath !== "/login" && redirectPath !== "/signup") {
+          navigate(redirectPath);
+          return;
+        }
       }
 
-      navigate(redirectPath);
+      navigate("/");
     }
   };
 
@@ -73,7 +79,6 @@ const LoginPage = () => {
       </div>
       <div className="login-form">
         <h2>Login</h2>
-
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -90,7 +95,6 @@ const LoginPage = () => {
           {errors.credentials && <p className="error">{errors.credentials}</p>}
           <button type="submit">Log In</button>
         </form>
-
         <span className="forgot-password">Forgotten password?</span>
         <hr className="divider" />
         <Link to="/signup">

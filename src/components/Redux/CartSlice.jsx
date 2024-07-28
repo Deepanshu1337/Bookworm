@@ -32,7 +32,7 @@ const cartSlice = createSlice({
       const { items = [], userId } = action.payload;
       state.items = items;
       state.showNotification = items.length > 0;
-      updateLocalStorage(userId, state.items);
+      updateLocalStorage(userId, state.items); // Ensure local storage is updated
     },
     addItem(state, action) {
       const { userId, bookId } = action.payload;
@@ -83,4 +83,5 @@ export const {
   decreaseItem,
   clearCart,
 } = cartSlice.actions;
+
 export default cartSlice.reducer;

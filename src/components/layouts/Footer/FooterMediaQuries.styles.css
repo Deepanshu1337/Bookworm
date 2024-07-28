@@ -9,7 +9,8 @@
     .footer-about{
         width: 70%;
         border-right: 1px solid var(--red);
-        margin-right: 2rem;
+        
+        padding-right: 3rem;
     }
     .footer-social{
         width: 35%;
@@ -41,5 +42,12 @@
         }
         .footer-btn-container{
             padding-right: 6rem;
+        }
+}
+
+@media (max-width: 800px) {
+    .form-field textarea {
+            width: 95%;
+          
         }
 }

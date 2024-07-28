@@ -37,6 +37,9 @@
   border-bottom-left-radius: 0.8rem;
   width: 100%;
 }
+.search-bar-input:focus{
+  outline: 0 solid var(--red);
+}
 
 .search-button {
   border: none;

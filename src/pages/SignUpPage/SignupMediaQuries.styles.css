@@ -1,48 +1,77 @@
 @media (max-width: 950px) {
-    .signup-text  {
-        display: none;
+    .signup-page {
+        flex-direction: column;
+    }
+
+    .signup-text {
+        width: 100%;
+    }
+
+    .signup-text h1 {
+        font-size: 3.3rem;
+    }
+
+    .signup-text p {
+        font-size: 1.8rem;
+        color: #e0e0e0;
     }
 
     .signup-form {
-        width: 72%;
-        padding: 2rem 8rem;
+        width: 90%;
+        padding: 0;
+
+
     }
+
+    .signup-form h2 {
+        font-size: 4rem;
+
+    }
+
+
 }
+
 @media (max-width: 800px) {
-    .signup-text {
-        display: none;
-    }
+
 
     .signup-form {
         max-height: 200vh;
-        width: 72%;
-        padding: 2rem 8rem;
+
     }
 }
 
 @media (max-width:600px) {
-    .signup-page{
-       height: 100vh;
-    }
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .input-error{
-        width: 100%;
-    }
-    .input-error input{
-width: 100% !important;
+    .signup-page {
+        height: 90vh;
     }
 
     .signup-form {
-        margin-top: 4rem;
-        padding: 2rem 2rem;
+        margin: 6rem;
+        padding: 0 3rem;
+        background-color: transparent;
+        height: 60%;
+    }
+
+    .signup-form h2 {
+        margin-bottom: 2rem;
+        padding: 0;
     }
 
     .form-container {
-        width: 75%;
+        width: 100%;
     }
 
+    .form-group {
+        flex-direction: column;
+    }
+
+         .signup-input {
+             font-size: 4rem;
+         }
+    .form-group input {
+        flex-direction: column;
+        width: 210%;
+    }
+
+   
 }

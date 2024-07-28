@@ -1,5 +1,36 @@
-@media (max-width:600px){
-    .login-text{
-        display: none;
+@media (max-width:600px) {
+    .login-page {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+
     }
+
+    .login-text {
+        width: 100%;
+    }
+
+    .login-text h1 {
+        font-size: 3.3rem;
+    }
+
+    .login-text p {
+        font-size: 1.8rem;
+        color: #e0e0e0;
+    }
+
+    .login-form {
+        width: 80%;
+        padding: 1rem;
+        margin-top: -5rem;
+    }
+    .login-form h2{
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+        .login-form input:first-child,
+        .login-form input[type="password"] {
+          font-size: 2rem;
+    
+        }
 }
