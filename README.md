@@ -1,4 +1,4 @@
-# Simple React JS Project
+# Ecommerce Bookstore React JS Project
 
 ## What is the use of this Repo
 
