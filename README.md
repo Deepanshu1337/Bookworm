@@ -18,7 +18,7 @@ Refer to https://nodejs.org/en/ to install nodejs
 
 ## Live Application URL
 
-The Application is deployed in https://aditya-sridhar.github.io/simple-reactjs-app
+The Application is deployed in https://Yet to be updated.
 
 Click on the link to see the application
 
@@ -62,6 +62,6 @@ The Application Runs on **localhost:3000**
 ## Resources
 
 **create-react-app** : The following link has all Resources :
-https://github.com/facebook/create-react-app
+https://github.com/Deepanshu1337/Bookworm
 
 **ReactJS** : Refer to https://reactjs.org/ to understand the concepts of ReactJS
