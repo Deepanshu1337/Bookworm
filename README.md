@@ -18,7 +18,7 @@ Refer to https://nodejs.org/en/ to install nodejs
 
 ## Live Application URL
 
-The Application is deployed in https://Yet to be updated.
+The Application is deployed in https://bookwormd.netlify.app
 
 Click on the link to see the application
 
