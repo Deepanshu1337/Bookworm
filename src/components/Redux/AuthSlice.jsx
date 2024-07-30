@@ -1,6 +1,6 @@
 // AuthSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { initializeCart, setCartItems, clearCart } from "./CartSlice";
+import { initializeCart, clearCart } from "./CartSlice";
 
 const initialState = {
   isLoggedIn: false,

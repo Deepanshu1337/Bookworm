@@ -1,6 +1,5 @@
 // src/components/HomePage/HomePage.js
 import React, { useEffect } from "react";
-import TrendingBooks from "../../components/TrendingBooks/TrendingBooks";
 import Hero from "../../components/layouts/hero/Hero";
 import "./HomePage.styles.css";
 
