@@ -77,7 +77,7 @@ export function ExtractBookData(book) {
 
   const title = getTitle(volumeInfo);
   const authors = getAuthors(volumeInfo);
-  const totalAuthors = geTotaltAuthors(volumeInfo);
+  const totalAuthors = geTotalAuthors(volumeInfo);
   const bookId = getBookId(book);
   const coverImage = getCoverImage(volumeInfo);
   const price = getPrice(saleInfo);
@@ -120,7 +120,7 @@ function getAuthors(volumeInfo) {
   return firstAuthor;
 }
 
-function geTotaltAuthors(volumeInfo) {
+function geTotalAuthors(volumeInfo) {
   const authors = volumeInfo.authors || [];
   if (authors.length === 0) return "Unknown author";
   return authors;

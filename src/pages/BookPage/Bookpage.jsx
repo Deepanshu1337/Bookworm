@@ -14,7 +14,7 @@ const BookPage = () => {
     console.log("Extracted query:", searchQuery); // Log extracted query
     setQuery(searchQuery);
   }, [location.search]);
-
+  console.log("extracted quey on book page : "+query);
   // Ensure that DataFetcher is only rendered if query is set
   if (!query) {
     return <div>Loading...</div>;
