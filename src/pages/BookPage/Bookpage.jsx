@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import BookDataHandler from "../../components/DataFetcher/BookDataHandler";
 import "./BookPage.styles.css";
 
-
 const BookPage = () => {
   const [query, setQuery] = useState("");
   const location = useLocation();
